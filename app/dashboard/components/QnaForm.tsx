@@ -20,7 +20,13 @@ export const qnaFormSchema = z.object({
   answer: z.string().optional(),
 });
 
-const QnaForm = ({ type }: { type: "Create" }) => {
+const QnaForm = ({
+  type,
+  onSuccess,
+}: {
+  type: "Create";
+  onSuccess?: () => void;
+}) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof qnaFormSchema>>({
@@ -43,7 +49,9 @@ const QnaForm = ({ type }: { type: "Create" }) => {
 
         if (newQna) {
           form.reset();
+          if (onSuccess) onSuccess();
           router.push("/qna");
+          router.refresh();
         }
       }
     } catch (error) {
@@ -53,7 +61,10 @@ const QnaForm = ({ type }: { type: "Create" }) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col gap-5"
+      >
         <FormField
           control={form.control}
           name="question"

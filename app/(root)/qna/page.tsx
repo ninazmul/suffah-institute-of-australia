@@ -35,6 +35,7 @@ const QnAPage = () => {
   const [qnaData, setQnaData] = useState<QnaItem[]>([]);
   const [search, setSearch] = useState("");
   const [likeAnimating, setLikeAnimating] = useState<string | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
     const fetchQnA = async () => {
@@ -120,7 +121,7 @@ const QnAPage = () => {
         <h3 className="text-xl font-semibold text-gray-800 mb-3">
           Have a question in mind?
         </h3>
-        <Sheet>
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button
               size="lg"
@@ -138,7 +139,7 @@ const QnAPage = () => {
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">
-              <QnaForm type="Create" />
+              <QnaForm type="Create" onSuccess={() => setSheetOpen(false)} />
             </div>
           </SheetContent>
         </Sheet>
