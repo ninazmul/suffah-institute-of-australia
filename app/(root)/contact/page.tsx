@@ -1,14 +1,19 @@
 import { ContactUs } from "@/components/shared/ContactUs";
+import Link from "next/link";
 
 export default async function ContactPage() {
   return (
     <>
-      <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+      <section className="wrapper flex flex-col gap-4">
         <h2 className="h2-bold">Contact Us</h2>
         <p className="p-regular-20 md:p-regular-24">
-          Have questions or ideas to share? We&apos;re here to listen—
+          If you have a question about the religion of Islam,
           <br />
-          connect with us and let’s bring your vision to life.
+          please visit the{" "}
+          <Link href={"/qna"} className="hover:underline text-primary-500 font-semibold">
+            Ask Question
+          </Link>{" "}
+          page.
         </p>
         <ContactUs />
       </section>

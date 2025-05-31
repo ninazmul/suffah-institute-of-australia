@@ -6,8 +6,8 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import Link from "next/link";
-import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
+// import Link from "next/link";
+// import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
 import toast from "react-hot-toast";
 
 export const ContactUs = () => {
@@ -78,7 +78,7 @@ export const ContactUs = () => {
           </p>
         )}
         <div className="flex flex-col md:flex-row gap-8">
-          <div>
+          {/* <div>
             <h3 className="font-semibold">Follow us on:</h3>
             <div className="flex items-center gap-4 py-4">
               <Link href={"/"} target="_blank">
@@ -94,7 +94,7 @@ export const ContactUs = () => {
                 <ImLinkedin className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
               </Link>
             </div>
-          </div>
+          </div> */}
           <div className="flex-1">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
