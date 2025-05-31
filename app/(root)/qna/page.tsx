@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import QnaForm from "@/app/dashboard/components/QnaForm";
-import { getUserEmailById } from "@/lib/actions/user.actions";
+import { getUserByClerkId, getUserEmailById } from "@/lib/actions/user.actions";
 
 interface QnaItem {
   _id: string;
@@ -43,12 +43,15 @@ const QnAPage = () => {
   useEffect(() => {
     const fetchEmail = async () => {
       if (userId) {
-        const result = await getUserEmailById(userId);
+        const userID= await getUserByClerkId(userId);
+        const result = await getUserEmailById(userID);
         setEmail(result || "");
       }
     };
     fetchEmail();
   }, [userId]);
+
+  console.log("Email", email, "userId", userId)
 
   const refreshQnaData = async () => {
     try {

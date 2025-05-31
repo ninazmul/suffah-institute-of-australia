@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Trash } from "lucide-react";
+import { Mail, Trash } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ const QnaTable = ({
 }: {
   qna: Array<{
     _id: string;
+    email: string;
     question: string;
     answer?: string;
     questionLikes: {
@@ -51,7 +52,8 @@ const QnaTable = ({
     return qna.filter(
       (item) =>
         item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.answer?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
+        (item.answer?.toLowerCase().includes(searchQuery.toLowerCase()) ??
+          false)
     );
   }, [qna, searchQuery]);
 
@@ -117,6 +119,7 @@ const QnaTable = ({
             <TableHead>Answer</TableHead>
             <TableHead>Question Likes</TableHead>
             <TableHead>Answer Likes</TableHead>
+            <TableHead>Email</TableHead>
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -153,6 +156,15 @@ const QnaTable = ({
 
               <TableCell>{qna.questionLikes.count}</TableCell>
               <TableCell>{qna.answerLikes.count}</TableCell>
+              <TableCell>
+                <a
+                  href={`mailto:${qna.email}`}
+                  className="text-blue-800 font-semibold underline"
+                  target="_blank"
+                >
+                  <Mail />
+                </a>
+              </TableCell>
               <TableCell>
                 <Button
                   onClick={() => setConfirmDeleteId(qna._id)}
