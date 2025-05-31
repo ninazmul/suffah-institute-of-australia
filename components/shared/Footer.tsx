@@ -4,7 +4,7 @@ import { ImFacebook, ImWhatsapp, ImYoutube } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <footer className=" bg-primary-500 text-white dark:text-green-200 py-8">
+    <footer className="bg-gradient-to-r from-primary-900 to-primary-500 text-white dark:text-green-200 py-8">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-6 items-center">
           <div>
@@ -13,7 +13,7 @@ const Footer = () => {
                 src={"/assets/images/logo.png"}
                 width={200}
                 height={200}
-                alt="OneSoul Logo"
+                alt="SIA Logo"
                 className=""
                 priority
               />
@@ -71,7 +71,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="https://www.youtube.com/@onesoulmuslim"
+                    href="https://www.youtube.com/@sIAmuslim"
                     target="_blank"
                     className="hover:underline flex items-center gap-2"
                   >
