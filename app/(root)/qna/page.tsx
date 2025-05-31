@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import QnaForm from "@/app/dashboard/components/QnaForm";
+import { getUserEmailById } from "@/lib/actions/user.actions";
 
 interface QnaItem {
   _id: string;
@@ -32,11 +33,22 @@ interface QnaItem {
 const QnAPage = () => {
   const { user } = useUser();
   const userId = user?.id || "";
+  const [email, setEmail] = useState<string>("");
   const [qnaData, setQnaData] = useState<QnaItem[]>([]);
   const [search, setSearch] = useState("");
   const [likeAnimating, setLikeAnimating] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const sheetRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const fetchEmail = async () => {
+      if (userId) {
+        const result = await getUserEmailById(userId);
+        setEmail(result || "");
+      }
+    };
+    fetchEmail();
+  }, [userId]);
 
   const refreshQnaData = async () => {
     try {
@@ -146,6 +158,7 @@ const QnAPage = () => {
                 type="Create"
                 refreshQnaData={refreshQnaData}
                 closeSheet={() => sheetRef.current?.click()}
+                email={email}
               />
             </div>
           </SheetContent>

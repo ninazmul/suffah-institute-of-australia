@@ -123,6 +123,7 @@ export type CreateAdminParams = {
 
 // ====== QNA PARAMS
 export type CreateQnaParams = {
+  Email: string;
   Question: string;
   Answer?: string;
   QuestionLikes?: {

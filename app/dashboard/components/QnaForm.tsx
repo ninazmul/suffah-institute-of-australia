@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
 import { createQna } from "@/lib/actions/qna.actions";
+import toast from "react-hot-toast";
 
 export const qnaFormSchema = z.object({
   question: z.string().min(10, "Question must be at least 10 characters."),
@@ -22,11 +23,12 @@ export const qnaFormSchema = z.object({
 
 type QnaFormProps = {
   type: "Create";
-  refreshQnaData: () => Promise<void>;
-  closeSheet: () => void;
+  refreshQnaData?: () => Promise<void>;
+  closeSheet?: () => void;
+  email: string;
 };
 
-const QnaForm = ({ type, refreshQnaData, closeSheet }: QnaFormProps) => {
+const QnaForm = ({ type, refreshQnaData, closeSheet, email }: QnaFormProps) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof qnaFormSchema>>({
@@ -41,6 +43,7 @@ const QnaForm = ({ type, refreshQnaData, closeSheet }: QnaFormProps) => {
     try {
       if (type === "Create") {
         const newQna = await createQna({
+          Email: email,
           Question: values.question,
           Answer: values.answer || "",
           QuestionLikes: { count: 0, likedBy: [] },
@@ -49,8 +52,13 @@ const QnaForm = ({ type, refreshQnaData, closeSheet }: QnaFormProps) => {
 
         if (newQna) {
           form.reset();
-          await refreshQnaData();
-          closeSheet();
+          toast.success("Question submitted successfully!");
+          if (refreshQnaData) {
+            await refreshQnaData();
+          }
+          if (closeSheet) {
+            closeSheet();
+          }
           router.push("/qna");
         }
       }

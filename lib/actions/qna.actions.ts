@@ -7,6 +7,7 @@ import Qna from "../database/models/qna.model";
 
 // ✅ Create a QnA (User)
 export const createQna = async ({
+  Email,
   Question,
   Answer = "",
   QuestionLikes = { count: 0, likedBy: [] },
@@ -16,6 +17,7 @@ export const createQna = async ({
     await connectToDatabase();
 
     const newQna = await Qna.create({
+      email: Email,
       question: Question,
       answer: Answer,
       questionLikes: QuestionLikes,

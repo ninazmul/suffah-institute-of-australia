@@ -10,8 +10,14 @@ import { Button } from "@/components/ui/button";
 import { getAllQna } from "@/lib/actions/qna.actions";
 import QnaTable from "../components/QnaTable";
 import QnaForm from "../components/QnaForm";
+import { auth } from "@clerk/nextjs/server";
+import { getUserEmailById } from "@/lib/actions/user.actions";
 
 const Page = async () => {
+  const { sessionClaims } = await auth();
+  const userId = sessionClaims?.userId as string;
+  const email = await getUserEmailById(userId);
+
   const qna = await getAllQna();
 
   return (
@@ -36,7 +42,7 @@ const Page = async () => {
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">
-              <QnaForm type="Create" />
+              <QnaForm type="Create" email={email} />
             </div>
           </SheetContent>
         </Sheet>

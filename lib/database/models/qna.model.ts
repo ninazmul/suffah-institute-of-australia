@@ -2,6 +2,7 @@ import { Schema, model, models, Document } from "mongoose";
 
 export interface IQna extends Document {
   _id: string;
+  email: string;
   question: string;
   answer?: string;
   questionLikes: {
@@ -15,6 +16,7 @@ export interface IQna extends Document {
 }
 
 const QnaSchema = new Schema<IQna>({
+  email: { type: String, required: true },
   question: { type: String, required: true, unique: true },
   answer: { type: String, default: "" },
   questionLikes: {
