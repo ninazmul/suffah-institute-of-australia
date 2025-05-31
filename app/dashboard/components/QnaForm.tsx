@@ -20,13 +20,13 @@ export const qnaFormSchema = z.object({
   answer: z.string().optional(),
 });
 
-const QnaForm = ({
-  type,
-  onSuccess,
-}: {
+type QnaFormProps = {
   type: "Create";
-  onSuccess?: () => void;
-}) => {
+  refreshQnaData: () => Promise<void>;
+  closeSheet: () => void;
+};
+
+const QnaForm = ({ type, refreshQnaData, closeSheet }: QnaFormProps) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof qnaFormSchema>>({
@@ -49,9 +49,9 @@ const QnaForm = ({
 
         if (newQna) {
           form.reset();
-          if (onSuccess) onSuccess();
+          await refreshQnaData();
+          closeSheet();
           router.push("/qna");
-          router.refresh();
         }
       }
     } catch (error) {

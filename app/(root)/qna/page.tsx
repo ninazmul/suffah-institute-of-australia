@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getAllQna, likeQuestion, likeAnswer } from "@/lib/actions/qna.actions";
 import { Heart } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
@@ -36,17 +36,19 @@ const QnAPage = () => {
   const [search, setSearch] = useState("");
   const [likeAnimating, setLikeAnimating] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const sheetRef = useRef<HTMLButtonElement>(null);
+
+  const refreshQnaData = async () => {
+    try {
+      const data = await getAllQna();
+      setQnaData(data.reverse());
+    } catch (error) {
+      console.error("Failed to fetch QnA data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchQnA = async () => {
-      try {
-        const data = await getAllQna();
-        setQnaData(data.reverse());
-      } catch (error) {
-        console.error("Failed to fetch QnA data:", error);
-      }
-    };
-    fetchQnA();
+    refreshQnaData();
   }, []);
 
   const filteredQnA = qnaData.filter((item) =>
@@ -124,6 +126,7 @@ const QnAPage = () => {
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button
+              ref={sheetRef}
               size="lg"
               className="rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-lg hover:brightness-110 transition-all"
             >
@@ -139,7 +142,11 @@ const QnAPage = () => {
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">
-              <QnaForm type="Create" onSuccess={() => setSheetOpen(false)} />
+              <QnaForm
+                type="Create"
+                refreshQnaData={refreshQnaData}
+                closeSheet={() => sheetRef.current?.click()}
+              />
             </div>
           </SheetContent>
         </Sheet>
