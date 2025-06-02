@@ -1,12 +1,10 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { getAllCommunityServiceResources } from "@/lib/actions/communityServiceResource";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { getAllFreeOrders } from "@/lib/actions/freeorder.actions";
-import { getAllIslamicResources } from "@/lib/actions/islamicResource.actions";
+import { getAllTeachers } from "@/lib/actions/teacher.actions";
 import { getAllOrders } from "@/lib/actions/order.actions";
-import { getAllRegistrations } from "@/lib/actions/registration.actions";
 import { useEffect, useState } from "react";
 import {
   Clipboard,
@@ -27,6 +25,8 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
+import { getAllBookings } from "@/lib/actions/booking.actions";
+import { getAllQna } from "@/lib/actions/qna.actions";
 
 // Register Chart.js components
 ChartJS.register(
@@ -40,14 +40,12 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const [communityServiceResources, setCommunityServiceResources] = useState(
-    []
-  );
+  const [bookings, setBookings] = useState([]);
   const [events, setEvents] = useState([]);
   const [freeOrders, setFreeOrders] = useState([]);
-  const [islamicResources, setIslamicResources] = useState([]);
+  const [teachers, setTeachers] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [registrations, setRegistrations] = useState([]);
+  const [qna, setQna] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,24 +54,24 @@ const Dashboard = () => {
           communityServiceData,
           eventsData,
           freeOrdersData,
-          islamicResourcesData,
+          teachersData,
           ordersData,
-          registrationsData,
+          qnaData,
         ] = await Promise.all([
-          getAllCommunityServiceResources(),
+          getAllBookings(),
           getAllEvents({ query: "", category: "", page: 1, limit: 10 }),
           getAllFreeOrders(),
-          getAllIslamicResources(),
+          getAllTeachers(),
           getAllOrders(),
-          getAllRegistrations(),
+          getAllQna(),
         ]);
 
-        setCommunityServiceResources(communityServiceData);
+        setBookings(communityServiceData);
         setEvents(eventsData?.data || []);
         setFreeOrders(freeOrdersData);
-        setIslamicResources(islamicResourcesData);
+        setTeachers(teachersData);
         setOrders(ordersData);
-        setRegistrations(registrationsData);
+        setQna(qnaData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -83,21 +81,21 @@ const Dashboard = () => {
   }, []);
 
   const labels = [
-    "Registrations",
+    "Qna",
     "Orders",
     "Events",
     "Free Orders",
-    "Community Service Resources",
-    "Islamic Resources",
+    "Quran Class Bookings",
+    "Teachers",
   ];
 
   const datasetValues = [
-    registrations.length,
+    qna.length,
     orders.length,
     events.length,
     freeOrders.length,
-    communityServiceResources.length,
-    islamicResources.length,
+    bookings.length,
+    teachers.length,
   ];
 
   const pieData = {
@@ -162,8 +160,8 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <DashboardCard
           icon={<Clipboard className="text-3xl text-blue-500" />}
-          title="Total Registrations"
-          value={registrations.length}
+          title="Total Qna"
+          value={qna.length}
         />
 
         <DashboardCard
@@ -183,13 +181,13 @@ const Dashboard = () => {
         />
         <DashboardCard
           icon={<Users className="text-3xl text-indigo-500" />}
-          title="Community Service Resources"
-          value={`${communityServiceResources.length}`}
+          title="Quran Class Bookings"
+          value={`${bookings.length}`}
         />
         <DashboardCard
           icon={<HelpCircle className="text-3xl text-teal-500" />}
-          title="Islamic Resources"
-          value={`${islamicResources.length}`}
+          title="Teachers"
+          value={`${teachers.length}`}
         />
       </div>
       <div className="mt-8">

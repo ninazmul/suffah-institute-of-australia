@@ -154,21 +154,6 @@ export type AddBannerParams = {
   Image: string;
 };
 
-// ====== REGISTRATION PARAMS
-export type RegistrationParams = {
-  firstName: string;
-  lastName: string;
-  address: string;
-  number: string;
-  email: string;
-  emergencyContactName: string;
-  emergencyContactNumber: string;
-  emergencyContactRelation: string;
-  signature?: string;
-  date: Date;
-  status: string;
-};
-
 // ====== FREE ORDER PARAMS
 export type FreeOrderParams = {
   name: string;
