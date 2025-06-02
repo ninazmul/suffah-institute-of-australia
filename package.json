@@ -61,6 +61,7 @@
     "react-modal-image": "^2.6.0",
     "react-photo-album": "^3.0.2",
     "react-responsive": "^10.0.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-signature-canvas": "^1.0.7",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",

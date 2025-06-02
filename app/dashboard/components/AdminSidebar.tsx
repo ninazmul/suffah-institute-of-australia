@@ -21,6 +21,8 @@ import {
   ImageIcon,
   FilesIcon,
   MessageSquare,
+  CalendarCheck,
+  UserCheck,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,9 +50,19 @@ const sidebarItems = [
     icon: ListOrderedIcon,
   },
   {
+    title: "Bookings",
+    url: "/dashboard/bookings",
+    icon: CalendarCheck,
+  },
+  {
     title: "Categories",
     url: "/dashboard/categories",
     icon: Grid,
+  },
+  {
+    title: "Teachers",
+    url: "/dashboard/teachers",
+    icon: UserCheck,
   },
   {
     title: "Banners",

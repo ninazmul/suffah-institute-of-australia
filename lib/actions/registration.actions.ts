@@ -156,4 +156,3 @@ export const isSubmittedByEmail = async (email: string): Promise<boolean> => {
     return false;
   }
 };
-

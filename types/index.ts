@@ -121,6 +121,12 @@ export type CreateAdminParams = {
   Email: string;
 };
 
+// ====== TEACHER PARAMS
+export type CreateTeacherParams = {
+  Name: string;
+  Email: string;
+};
+
 // ====== QNA PARAMS
 export type CreateQnaParams = {
   Email: string;
@@ -134,24 +140,6 @@ export type CreateQnaParams = {
     count: number;
     likedBy: string[];
   };
-};
-
-// ====== ISLAMIC RESOURCE PARAMS
-export type CreateIslamicResourceParams = {
-  category: string;
-  fileName: string;
-  link: string;
-};
-
-// ====== COMMUNITY SERVICE RESOURCE PARAMS
-export type CreateCommunityServiceResourceParams = {
-  category: string;
-  name: string;
-  address: string;
-  city: string;
-  state: string;
-  website?: string;
-  contact?: string;
 };
 
 // ====== GALLERY PARAMS
