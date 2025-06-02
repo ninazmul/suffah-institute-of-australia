@@ -156,7 +156,7 @@ export default function BookingForm({
         if (newBooking) {
           reset();
           toast.success("Booking successful! Pending approval.");
-          router.push("/bookings");
+          router.push("/");
         }
       } else if (type === "Update" && bookingId) {
         const updatedBooking = await updateBooking(bookingId, values);
