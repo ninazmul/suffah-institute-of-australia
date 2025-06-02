@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sidebar";
 import {
   LayoutDashboard,
-  Users,
   Calendar,
   Grid,
   Shield,
@@ -33,11 +32,6 @@ const sidebarItems = [
     title: "Dashboard",
     url: "/dashboard",
     icon: LayoutDashboard,
-  },
-  {
-    title: "Volunteers",
-    url: "/dashboard/volunteers",
-    icon: Users,
   },
   {
     title: "Events",
