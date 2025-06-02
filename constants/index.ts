@@ -16,10 +16,6 @@ export const headerLinks = [
     route: "/events",
   },
   {
-    label: "Resources",
-    route: "/resources",
-  },
-  {
     label: "Gallery",
     route: "/gallery",
   },
