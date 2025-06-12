@@ -32,7 +32,7 @@ const QnaCarousel = ({ qnas }: Props) => {
           <Link
             href={`/qna`}
             key={qna._id}
-            className="min-w-full px-4 py-6 border rounded-xl bg-white dark:bg-gray-900 mx-2 hover:shadow-lg transition-all duration-300"
+            className="min-w-full px-4 py-6 border rounded-xl bg-[#fff5f0] dark:bg-gray-900 mx-2 hover:shadow-lg transition-all duration-300"
           >
             <h3 className="text-lg font-semibold line-clamp-2 mb-2">
               {qna.question}

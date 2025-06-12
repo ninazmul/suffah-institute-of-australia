@@ -43,7 +43,7 @@ const QnAPage = () => {
   useEffect(() => {
     const fetchEmail = async () => {
       if (userId) {
-        const userID= await getUserByClerkId(userId);
+        const userID = await getUserByClerkId(userId);
         const result = await getUserEmailById(userID);
         setEmail(result || "");
       }
@@ -51,7 +51,7 @@ const QnAPage = () => {
     fetchEmail();
   }, [userId]);
 
-  console.log("Email", email, "userId", userId)
+  console.log("Email", email, "userId", userId);
 
   const refreshQnaData = async () => {
     try {
@@ -131,29 +131,29 @@ const QnAPage = () => {
 
   return (
     <section className="max-w-4xl mx-auto my-12 px-6 sm:px-8">
-      <h2 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
-        Questions & Answers
-      </h2>
+      <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-500">
+        Ask Islamic Questions
+      </h1>
       <div className="mb-10 text-center">
-        <h3 className="text-xl font-semibold text-gray-800 mb-3">
-          Have a question in mind?
+        <h3 className="text-xl font-semibold text-gray-500 mb-3">
+          Have a question about Islam?
         </h3>
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
             <Button
               ref={sheetRef}
               size="lg"
-              className="rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-lg hover:brightness-110 transition-all"
+              className="rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:brightness-110 transition-all"
             >
-              Ask a Question
+              Ask a Scholar
             </Button>
           </SheetTrigger>
           <SheetContent className="bg-white">
             <SheetHeader>
-              <SheetTitle>Ask New Question</SheetTitle>
+              <SheetTitle>Submit Your Question</SheetTitle>
               <SheetDescription>
-                Use this form to ask a new question. Make sure your question is
-                clear and specific so others can provide helpful answers.
+                Ask your Islamic question clearly and respectfully. Our scholars
+                will respond with guidance based on authentic sources.
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">
@@ -173,14 +173,14 @@ const QnAPage = () => {
         placeholder="Search questions..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="w-full mb-12 p-4 border border-gray-300 rounded-xl text-lg
-                   focus:outline-none focus:ring-4 focus:ring-pink-400 transition"
+        className="w-full mb-12 px-4 py-2 border border-gray-300 rounded-xl text-lg
+                   focus:outline-none focus:ring-4 focus:ring-orange-400 transition"
       />
 
       <div className="flex flex-col gap-10">
         {filteredQnA.length === 0 && (
           <p className="text-center text-gray-500 italic text-lg">
-            No questions found.
+            No Islamic questions found.
           </p>
         )}
 
@@ -191,7 +191,7 @@ const QnAPage = () => {
           return (
             <article
               key={item._id}
-              className="border border-gray-200 rounded-2xl p-8 bg-white shadow-md
+              className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md
                          hover:shadow-xl transition-shadow duration-300"
             >
               <header className="flex justify-between items-start mb-6">
@@ -210,8 +210,8 @@ const QnAPage = () => {
                     transition-colors duration-200 ease-in-out
                     ${
                       questionLiked
-                        ? "text-pink-600 cursor-default"
-                        : "text-gray-400 hover:text-pink-600 cursor-pointer"
+                        ? "text-orange-600 cursor-default"
+                        : "text-gray-400 hover:text-orange-600 cursor-pointer"
                     }
                     ${
                       likeAnimating === item._id + "-q"
@@ -224,18 +224,18 @@ const QnAPage = () => {
                   <Heart
                     size={24}
                     className={
-                      questionLiked ? "fill-pink-600 text-pink-600" : ""
+                      questionLiked ? "fill-orange-600 text-orange-600" : ""
                     }
                   />
                   <span>{item.questionLikes.count}</span>
                 </button>
               </header>
 
-              <section className="pl-6 border-l-4 border-pink-100">
+              <section className="pl-6 border-l-4 border-orange-100">
                 <p className="mb-5 text-gray-700 whitespace-pre-line min-h-[60px]">
                   {item.answer || (
                     <em className="text-gray-400 italic">
-                      No answer available yet.
+                      This question has not been answered by a scholar yet.
                     </em>
                   )}
                 </p>
@@ -253,8 +253,8 @@ const QnAPage = () => {
         transition-colors duration-200 ease-in-out
         ${
           answerLiked
-            ? "text-pink-600 cursor-default"
-            : "text-gray-400 hover:text-pink-600 cursor-pointer"
+            ? "text-orange-600 cursor-default"
+            : "text-gray-400 hover:text-orange-600 cursor-pointer"
         }
         ${likeAnimating === item._id + "-a" ? "scale-110" : "scale-100"}
       `}
@@ -263,7 +263,7 @@ const QnAPage = () => {
                       <Heart
                         size={24}
                         className={
-                          answerLiked ? "fill-pink-600 text-pink-600" : ""
+                          answerLiked ? "fill-orange-600 text-orange-600" : ""
                         }
                       />
                       <span>{item.answerLikes.count}</span>
