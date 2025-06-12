@@ -3,6 +3,7 @@ import Collection from "@/components/shared/Collection";
 import { ContactUs } from "@/components/shared/ContactUs";
 import QnaCarousel from "@/components/shared/QnaCarousel";
 import Search from "@/components/shared/Search";
+import Services from "@/components/shared/Services";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { getAllQna } from "@/lib/actions/qna.actions";
 import { SearchParamProps } from "@/types";
@@ -25,6 +26,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <>
+      <section id="services" className="">
+        <Services />
+      </section>
+
       <section
         id="events"
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
