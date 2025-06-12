@@ -45,19 +45,35 @@ const ProfilePage = async ({ searchParams }: PageProps) => {
 
   return (
     <>
-      <section>
+      <section className="m-4 md:mt-10">
         <div>
-          {bookings.map((booking: Booking) => (
+          {bookings?.map((booking: Booking) => (
             <details
               key={booking._id}
-              className="max-w-7xl mx-auto bg-white shadow-sm p-4 rounded-xl border border-gray-200 mb-4 transition hover:shadow-md"
+              className="group max-w-7xl mx-auto bg-white shadow-sm p-4 rounded-xl border border-gray-200 mb-4 transition hover:shadow-md"
             >
-              <summary className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600 transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <div>
-                  {booking.name} —{" "}
-                  {formatDateTime(new Date(booking.date)).dateOnly} at{" "}
-                  {formatDateTime(new Date(booking.date)).timeOnly}
+              <summary className="cursor-pointer font-semibold text-gray-800 hover:text-blue-600 transition flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 group-open:mb-2">
+                <div className="flex items-center gap-2">
+                  <span>
+                    {booking.name} —{" "}
+                    {formatDateTime(new Date(booking.date)).dateOnly} at{" "}
+                    {formatDateTime(new Date(booking.date)).timeOnly}
+                  </span>
+                  <svg
+                    className="w-4 h-4 transition-transform duration-200 group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
+
                 <div className="flex flex-wrap gap-2 text-sm mt-1 sm:mt-0">
                   <StatusBadge label="Status" value={booking.status} />
                   <StatusBadge label="Payment" value={booking.payment} />
