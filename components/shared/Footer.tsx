@@ -110,14 +110,14 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-t border-white" />
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
-          <p className="text-sm">
+          <p className="text-xs">
             Copyright © 2025{" "}
             <Link href="/" className="hover:underline">
               Suffah Institute of Australia
             </Link>{" "}
             | ABN 90667219580 - All rights reserved
           </p>
-          <p className="text-sm flex items-center gap-2">
+          <p className="text-xs flex items-center gap-2">
             Developed by{" "}
             <Link
               href="https://www.artistycode.studio"
