@@ -111,10 +111,11 @@ const Footer = () => {
         <hr className="my-6 border-t border-white" />
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
           <p className="text-sm">
-            Copyright © 2025 - All rights reserved by{" "}
+            Copyright © 2025{" "}
             <Link href="/" className="hover:underline">
               Suffah Institute of Australia
-            </Link>
+            </Link>{" "}
+            | ABN 90667219580 - All rights reserved
           </p>
           <p className="text-sm flex items-center gap-2">
             Developed by{" "}
