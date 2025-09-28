@@ -17,7 +17,6 @@ import {
   Shield,
   Images,
   ListOrderedIcon,
-  ImageIcon,
   FilesIcon,
   MessageSquare,
   CalendarCheck,
@@ -57,11 +56,6 @@ const sidebarItems = [
     title: "Teachers",
     url: "/dashboard/teachers",
     icon: UserCheck,
-  },
-  {
-    title: "Banners",
-    url: "/dashboard/banners",
-    icon: ImageIcon,
   },
   {
     title: "Gallery",
