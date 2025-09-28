@@ -9,7 +9,7 @@ export const headerLinks = [
   },
   {
     label: "Our Achievements",
-    route: "/Achievements",
+    route: "/achievements",
   },
   {
     label: "Events",
