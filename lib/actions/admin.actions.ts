@@ -5,12 +5,10 @@ import { handleError } from "../utils";
 import { connectToDatabase } from "../database";
 import Admin from "../database/models/admin.model";
 
-export const createAdmin = async ({ Name, Email }: CreateAdminParams) => {
+export const createAdmin = async (params: CreateAdminParams) => {
   try {
     await connectToDatabase();
-
-    const newAdmin = await Admin.create({ name: Name, email: Email });
-
+    const newAdmin = await Admin.create(params);
     return JSON.parse(JSON.stringify(newAdmin));
   } catch (error) {
     handleError(error);
@@ -66,6 +64,3 @@ export async function isAdmin(email: string): Promise<boolean> {
     return false;
   }
 }
-
-
-

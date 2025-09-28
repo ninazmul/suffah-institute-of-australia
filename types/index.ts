@@ -148,6 +148,14 @@ export type AddPhotoParams = {
   Image: string;
 };
 
+// ====== ACHIEVEMENT PARAMS
+export type AddAchievementParams = {
+  title: string;
+  description: string;
+  category: string;
+  image?: string;
+};
+
 // ====== BANNER PARAMS
 export type AddBannerParams = {
   Title: string;
