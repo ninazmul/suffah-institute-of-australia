@@ -25,11 +25,10 @@ const Page = async () => {
 
   return (
     <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-      <h2 className="h2-bold text-center">Explore All Achievements</h2>
+      <h2 className="h2-bold text-center">Our Achievements</h2>
       <p className="p-regular-20 md:p-regular-24 text-center">
-        Explore events that bring the Muslim community together—
-        <br />
-        prayers, gatherings, celebrations, and more.
+        Discover milestones and accomplishments that reflect our journey— from
+        community events and celebrations to meaningful contributions.
       </p>
 
       <Tabs defaultValue="All" className="w-full">
