@@ -1,7 +1,6 @@
 import { getAllAchievement } from "@/lib/actions/achievement.actions";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IAchievement } from "@/lib/database/models/achievement.model";
 
 const Page = async () => {
@@ -26,15 +25,15 @@ const Page = async () => {
 
   return (
     <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-      <h2 className="h2-bold">Explore All Achievements</h2>
-      <p className="p-regular-20 md:p-regular-24">
+      <h2 className="h2-bold text-center">Explore All Achievements</h2>
+      <p className="p-regular-20 md:p-regular-24 text-center">
         Explore events that bring the Muslim community together—
         <br />
         prayers, gatherings, celebrations, and more.
       </p>
 
       <Tabs defaultValue="All" className="w-full">
-        <TabsList className="flex flex-wrap gap-2">
+        <TabsList className="flex flex-wrap justify-center gap-2">
           {categories.map((cat: string) => (
             <TabsTrigger key={cat} value={cat}>
               {cat}
@@ -50,30 +49,32 @@ const Page = async () => {
                   cat === "All" ? true : a.category === cat
                 )
                 .map((a: IAchievement) => (
-                  <Card
+                  <div
                     key={a._id}
-                    className="rounded-2xl shadow-md hover:shadow-lg transition"
+                    className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col sm:flex-row lg:flex-col overflow-hidden"
                   >
                     {a.image && (
-                      <div className="relative w-full h-48">
+                      <div className="relative w-full sm:w-1/3 lg:w-full min-h-[180px] lg:min-h-[220px]">
                         <Image
                           src={a.image}
                           alt={a.title}
                           fill
-                          className="object-cover rounded-t-2xl"
+                          className="object-cover bg-gray-100 w-full h-full"
                         />
                       </div>
                     )}
-                    <CardHeader>
-                      <CardTitle className="text-lg">{a.title}</CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        {a.category}
-                      </p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm">{a.description}</p>
-                    </CardContent>
-                  </Card>
+                    <div className="p-4 flex flex-col justify-between flex-1">
+                      <div>
+                        <h3 className="text-lg font-semibold">{a.title}</h3>
+                        <p className="text-sm text-muted-foreground">
+                          {a.category}
+                        </p>
+                      </div>
+                      <div className="mt-2">
+                        <p className="text-sm">{a.description}</p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
             </div>
           </TabsContent>
