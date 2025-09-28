@@ -9,7 +9,6 @@ export default async function ContactPage() {
         <ContactUs />
         <p className="p-regular-20 md:p-regular-24">
           If you have a question about the religion of Islam,
-          <br />
           please visit the{" "}
           <Link
             href={"/qna"}

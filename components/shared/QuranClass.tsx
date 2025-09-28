@@ -18,7 +18,7 @@ export default async function QuranClass() {
   const bookings = await getAllBookings();
   const teachers = await getAllTeachers();
   return (
-    <section className="py-12 px-6 md:px-16 bg-white flex flex-col-reverse lg:flex-row items-center justify-center gap-10">
+    <section className="bg-white flex flex-col-reverse lg:flex-row items-center justify-center gap-10">
       {/* Left Side - Image */}
       <div className="flex-1 max-w-md">
         <div className="rounded-xl p-4 bg-[#fff5f0]">
