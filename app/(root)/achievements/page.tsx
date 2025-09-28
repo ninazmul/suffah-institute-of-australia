@@ -27,8 +27,8 @@ const Page = async () => {
     <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
       <h2 className="h2-bold text-center">Our Achievements</h2>
       <p className="p-regular-20 md:p-regular-24 text-center">
-        Discover milestones and accomplishments that reflect our journey— from
-        community events and celebrations to meaningful contributions.
+        Discover milestones and accomplishments that reflect our journey—
+        from community events and celebrations to meaningful contributions.
       </p>
 
       <Tabs defaultValue="All" className="w-full">
@@ -42,7 +42,7 @@ const Page = async () => {
 
         {categories.map((cat) => (
           <TabsContent key={cat} value={cat}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div className="grid grid-cols-1 gap-6 mt-6">
               {achievements
                 .filter((a: IAchievement) =>
                   cat === "All" ? true : a.category === cat
@@ -50,10 +50,10 @@ const Page = async () => {
                 .map((a: IAchievement) => (
                   <div
                     key={a._id}
-                    className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col sm:flex-row lg:flex-col overflow-hidden"
+                    className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row overflow-hidden"
                   >
                     {a.image && (
-                      <div className="relative w-full sm:w-1/3 lg:w-full min-h-[180px] lg:min-h-[220px]">
+                      <div className="relative w-full md:w-1/3 min-h-[200px]">
                         <Image
                           src={a.image}
                           alt={a.title}
