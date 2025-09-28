@@ -117,10 +117,8 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="academic">Academic</SelectItem>
-                    <SelectItem value="professional">Professional</SelectItem>
-                    <SelectItem value="personal">Personal</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="Education Care Program">Education Care Program</SelectItem>
+                    <SelectItem value="Healthcare Program">Healthcare Program</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
