@@ -133,6 +133,7 @@ const AchievementsTable = ({
                 />
               </TableCell>
               <TableCell>{achievement.title}</TableCell>
+              <TableCell>{achievement.category}</TableCell>
               <TableCell>
                 <Button
                   onClick={() => setConfirmDeleteId(achievement._id)}

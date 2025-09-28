@@ -63,7 +63,7 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
 
         if (newAchievement) {
           form.reset();
-          router.push(`/dashboard/achievement`);
+          router.push(`/dashboard/achievements`);
         }
       }
     } catch (error) {
