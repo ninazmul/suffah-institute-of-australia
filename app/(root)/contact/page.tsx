@@ -5,9 +5,9 @@ export default async function ContactPage() {
   return (
     <>
       <section className="wrapper flex flex-col gap-4">
-        <h2 className="h2-bold">Contact Us</h2>
+        <h2 className="h2-bold py-4">Contact Us</h2>
         <ContactUs />
-        <p className="p-regular-20 md:p-regular-24">
+        <p className="p-regular-20 md:p-regular-24 py-4">
           If you have a question about the religion of Islam,
           please visit the{" "}
           <Link
