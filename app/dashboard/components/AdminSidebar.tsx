@@ -20,6 +20,7 @@ import {
   MessageSquare,
   CalendarCheck,
   UserCheck,
+  Stars,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,6 +56,11 @@ const sidebarItems = [
     title: "Teachers",
     url: "/dashboard/teachers",
     icon: UserCheck,
+  },
+  {
+    title: "Achievements",
+    url: "/dashboard/achievements",
+    icon: Stars,
   },
   {
     title: "Gallery",
