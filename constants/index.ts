@@ -37,29 +37,6 @@ export const headerLinks = [
   },
 ];
 
-export const Committee = [
-  {
-    position: "President",
-    name: "Md Shamsul Islam",
-  },
-  {
-    position: "Vice President",
-    name: "Md Sakawat Hossain",
-  },
-  {
-    position: "Treasurer",
-    name: "Md Didarul Alam",
-  },
-  {
-    position: "General Secretary",
-    name: "Md Abul Hossain",
-  },
-  {
-    position: "Public Officer",
-    name: "(Acting) Md Abul Hossain",
-  },
-];
-
 export const eventDefaultValues = {
   title: "",
   description: "",
