@@ -117,8 +117,8 @@ export type CreateCategoryParams = {
 
 // ====== ADMIN PARAMS
 export type CreateAdminParams = {
-  Name: string;
-  Email: string;
+  name: string;
+  email: string;
 };
 
 // ====== TEACHER PARAMS

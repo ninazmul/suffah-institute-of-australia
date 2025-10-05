@@ -35,8 +35,8 @@ const AdminForm = ({ type }: { type: "Create" }) => {
     try {
       if (type === "Create") {
         const newAdmin = await createAdmin({
-          Name: values.name,
-          Email: values.email,
+          name: values.name,
+          email: values.email,
         });
 
         if (newAdmin) {
