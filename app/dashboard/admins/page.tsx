@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs/server";
 import { getAllAdmins } from "@/lib/actions/admin.actions";
 import {
   Sheet,
@@ -13,9 +12,6 @@ import AdminTable from "../components/AdminTable";
 import { Button } from "@/components/ui/button";
 
 const Page = async () => {
-  const { sessionClaims } = await auth();
-  const userId = sessionClaims?.userId as string;
-
   const admins = await getAllAdmins();
 
   return (
@@ -41,7 +37,7 @@ const Page = async () => {
               </SheetDescription>
             </SheetHeader>
             <div className="py-5">
-              <AdminForm userId={userId} type="Create" />
+              <AdminForm type="Create" />
             </div>
           </SheetContent>
         </Sheet>

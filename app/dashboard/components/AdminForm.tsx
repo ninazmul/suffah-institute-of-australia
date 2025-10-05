@@ -20,7 +20,7 @@ export const adminFormSchema = z.object({
   email: z.string().email("Invalid email address."),
 });
 
-const AdminForm = ({ userId, type }: { userId: string; type: "Create" }) => {
+const AdminForm = ({ type }: { type: "Create" }) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof adminFormSchema>>({
@@ -33,7 +33,7 @@ const AdminForm = ({ userId, type }: { userId: string; type: "Create" }) => {
 
   async function onSubmit(values: z.infer<typeof adminFormSchema>) {
     try {
-      if (type === "Create" && userId) {
+      if (type === "Create") {
         const newAdmin = await createAdmin({
           Name: values.name,
           Email: values.email,
