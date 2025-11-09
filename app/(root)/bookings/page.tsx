@@ -39,8 +39,10 @@ const QnAPage = () => {
   const [search, setSearch] = useState("");
   const [likeAnimating, setLikeAnimating] = useState<string | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const sheetRef = useRef<HTMLButtonElement>(null);
 
+  // Fetch email
   useEffect(() => {
     const fetchEmail = async () => {
       if (userId) {
@@ -52,14 +54,16 @@ const QnAPage = () => {
     fetchEmail();
   }, [userId]);
 
-  console.log("Email", email, "userId", userId);
-
+  // Fetch QnA data
   const refreshQnaData = async () => {
+    setLoading(true);
     try {
       const data = await getAllQna();
       setQnaData(data.reverse());
     } catch (error) {
       console.error("Failed to fetch QnA data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -130,6 +134,20 @@ const QnAPage = () => {
     }
   };
 
+  // Skeleton loader component
+  const QnaSkeleton = () => (
+    <div className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md animate-pulse flex flex-col gap-4">
+      <div className="h-6 bg-gray-300 rounded w-3/4"></div>
+      <div className="h-4 bg-gray-300 rounded w-full"></div>
+      <div className="h-4 bg-gray-300 rounded w-full"></div>
+      <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+      <div className="flex justify-end mt-2 gap-2">
+        <div className="h-6 w-16 bg-gray-300 rounded"></div>
+        <div className="h-6 w-16 bg-gray-300 rounded"></div>
+      </div>
+    </div>
+  );
+
   return (
     <main className="wrapper my-8 flex flex-col lg:flex-row gap-8 md:gap-12">
       {/* Left Section: QnA */}
@@ -181,91 +199,99 @@ const QnAPage = () => {
         />
 
         <div className="flex flex-col gap-10">
-          {filteredQnA.length === 0 && (
+          {loading &&
+            Array.from({ length: 3 }).map((_, idx) => (
+              <QnaSkeleton key={idx} />
+            ))}
+
+          {!loading && filteredQnA.length === 0 && (
             <p className="text-center text-gray-500 italic text-lg">
               No Islamic questions found.
             </p>
           )}
 
-          {filteredQnA.map((item) => {
-            const questionLiked = item.questionLikes.likedBy.includes(userId);
-            const answerLiked = item.answerLikes.likedBy.includes(userId);
+          {!loading &&
+            filteredQnA.map((item) => {
+              const questionLiked = item.questionLikes.likedBy.includes(userId);
+              const answerLiked = item.answerLikes.likedBy.includes(userId);
 
-            return (
-              <article
-                key={item._id}
-                className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md hover:shadow-xl transition-shadow duration-300"
-              >
-                <header className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
-                    {item.question}
-                  </h3>
+              return (
+                <article
+                  key={item._id}
+                  className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <header className="flex justify-between items-start mb-6">
+                    <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
+                      {item.question}
+                    </h3>
 
-                  <button
-                    onClick={() => handleLikeQuestion(item._id)}
-                    aria-label="Like question"
-                    disabled={!userId || questionLiked}
-                    className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
-                      questionLiked
-                        ? "text-orange-600 cursor-default"
-                        : "text-gray-400 hover:text-orange-600 cursor-pointer"
-                    } ${
-                      likeAnimating === item._id + "-q"
-                        ? "scale-110"
-                        : "scale-100"
-                    }`}
-                    style={{ willChange: "transform, color" }}
-                  >
-                    <Heart
-                      size={24}
-                      className={
-                        questionLiked ? "fill-orange-600 text-orange-600" : ""
-                      }
-                    />
-                    <span>{item.questionLikes.count}</span>
-                  </button>
-                </header>
+                    <button
+                      onClick={() => handleLikeQuestion(item._id)}
+                      aria-label="Like question"
+                      disabled={!userId || questionLiked}
+                      className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
+                        questionLiked
+                          ? "text-orange-600 cursor-default"
+                          : "text-gray-400 hover:text-orange-600 cursor-pointer"
+                      } ${
+                        likeAnimating === item._id + "-q"
+                          ? "scale-110"
+                          : "scale-100"
+                      }`}
+                      style={{ willChange: "transform, color" }}
+                    >
+                      <Heart
+                        size={24}
+                        className={
+                          questionLiked ? "fill-orange-600 text-orange-600" : ""
+                        }
+                      />
+                      <span>{item.questionLikes.count}</span>
+                    </button>
+                  </header>
 
-                <section className="pl-6 border-l-4 border-orange-100">
-                  <p className="mb-5 text-gray-700 whitespace-pre-line min-h-[60px]">
-                    {item.answer || (
-                      <em className="text-gray-400 italic">
-                        This question has not been answered by a scholar yet.
-                      </em>
+                  <section className="pl-6 border-l-4 border-orange-100">
+                    <p className="mb-5 text-gray-700 whitespace-pre-line min-h-[60px]">
+                      {item.answer || (
+                        <em className="text-gray-400 italic">
+                          This question has not been answered by a scholar yet.
+                        </em>
+                      )}
+                    </p>
+
+                    {item.answer && (
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => handleLikeAnswer(item._id)}
+                          aria-label="Like answer"
+                          disabled={!userId || answerLiked}
+                          className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
+                            answerLiked
+                              ? "text-orange-600 cursor-default"
+                              : "text-gray-400 hover:text-orange-600 cursor-pointer"
+                          } ${
+                            likeAnimating === item._id + "-a"
+                              ? "scale-110"
+                              : "scale-100"
+                          }`}
+                          style={{ willChange: "transform, color" }}
+                        >
+                          <Heart
+                            size={24}
+                            className={
+                              answerLiked
+                                ? "fill-orange-600 text-orange-600"
+                                : ""
+                            }
+                          />
+                          <span>{item.answerLikes.count}</span>
+                        </button>
+                      </div>
                     )}
-                  </p>
-
-                  {item.answer && (
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => handleLikeAnswer(item._id)}
-                        aria-label="Like answer"
-                        disabled={!userId || answerLiked}
-                        className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
-                          answerLiked
-                            ? "text-orange-600 cursor-default"
-                            : "text-gray-400 hover:text-orange-600 cursor-pointer"
-                        } ${
-                          likeAnimating === item._id + "-a"
-                            ? "scale-110"
-                            : "scale-100"
-                        }`}
-                        style={{ willChange: "transform, color" }}
-                      >
-                        <Heart
-                          size={24}
-                          className={
-                            answerLiked ? "fill-orange-600 text-orange-600" : ""
-                          }
-                        />
-                        <span>{item.answerLikes.count}</span>
-                      </button>
-                    </div>
-                  )}
-                </section>
-              </article>
-            );
-          })}
+                  </section>
+                </article>
+              );
+            })}
         </div>
       </section>
 
