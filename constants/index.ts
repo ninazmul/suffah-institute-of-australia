@@ -8,6 +8,10 @@ export const headerLinks = [
     route: "/services",
   },
   {
+    label: "Our Achievements",
+    route: "/achievements",
+  },
+  {
     label: "Bookings",
     route: "/bookings",
   },
@@ -22,10 +26,6 @@ export const headerLinks = [
   {
     label: "About Us",
     route: "/about",
-  },
-  {
-    label: "Ask Question",
-    route: "/qna",
   },
   {
     label: "Contact Us",

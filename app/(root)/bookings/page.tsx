@@ -1,108 +1,287 @@
 "use client";
 
-import { getAllAchievement } from "@/lib/actions/achievement.actions";
-import Image from "next/image";
-import { IAchievement } from "@/lib/database/models/achievement.model";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { getAllQna, likeQuestion, likeAnswer } from "@/lib/actions/qna.actions";
+import { Heart } from "lucide-react";
+import { useUser } from "@clerk/nextjs";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import QnaForm from "@/app/dashboard/components/QnaForm";
+import { getUserByClerkId, getUserEmailById } from "@/lib/actions/user.actions";
 import QuranClass from "@/components/shared/QuranClass";
 
-const Page = () => {
-  const [achievements, setAchievements] = useState<IAchievement[]>([]);
-  const [activeTab, setActiveTab] = useState("All");
+interface QnaItem {
+  _id: string;
+  question: string;
+  answer: string;
+  questionLikes: {
+    count: number;
+    likedBy: string[];
+  };
+  answerLikes: {
+    count: number;
+    likedBy: string[];
+  };
+}
+
+const QnAPage = () => {
+  const { user } = useUser();
+  const userId = user?.id || "";
+  const [email, setEmail] = useState<string>("");
+  const [qnaData, setQnaData] = useState<QnaItem[]>([]);
+  const [search, setSearch] = useState("");
+  const [likeAnimating, setLikeAnimating] = useState<string | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const sheetRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getAllAchievement();
-      if (data) setAchievements(data);
+    const fetchEmail = async () => {
+      if (userId) {
+        const userID = await getUserByClerkId(userId);
+        const result = await getUserEmailById(userID);
+        setEmail(result || "");
+      }
     };
-    fetchData();
+    fetchEmail();
+  }, [userId]);
+
+  console.log("Email", email, "userId", userId);
+
+  const refreshQnaData = async () => {
+    try {
+      const data = await getAllQna();
+      setQnaData(data.reverse());
+    } catch (error) {
+      console.error("Failed to fetch QnA data:", error);
+    }
+  };
+
+  useEffect(() => {
+    refreshQnaData();
   }, []);
 
-  if (!achievements || achievements.length === 0) {
-    return (
-      <section className="wrapper my-8 text-center">
-        <h2 className="h2-bold">No Achievements Found</h2>
-        <p className="p-regular-20">Please check back later.</p>
-      </section>
-    );
-  }
+  const filteredQnA = qnaData.filter((item) =>
+    `${item.question} ${item.answer}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
-  // Extract unique categories
-  const categories: string[] = [
-    "All",
-    ...Array.from(new Set(achievements.map((a) => a.category as string))),
-  ];
+  const animateLike = (id: string) => {
+    setLikeAnimating(id);
+    setTimeout(() => setLikeAnimating(null), 300);
+  };
+
+  const handleLikeQuestion = async (id: string) => {
+    const target = qnaData.find((item) => item._id === id);
+    if (!userId || !target || target.questionLikes.likedBy.includes(userId))
+      return;
+
+    try {
+      await likeQuestion(id, userId);
+      setQnaData((prev) =>
+        prev.map((item) =>
+          item._id === id
+            ? {
+                ...item,
+                questionLikes: {
+                  count: item.questionLikes.count + 1,
+                  likedBy: [...item.questionLikes.likedBy, userId],
+                },
+              }
+            : item
+        )
+      );
+      animateLike(id + "-q");
+    } catch (error) {
+      console.error("Failed to like question:", error);
+    }
+  };
+
+  const handleLikeAnswer = async (id: string) => {
+    const target = qnaData.find((item) => item._id === id);
+    if (!userId || !target || target.answerLikes.likedBy.includes(userId))
+      return;
+
+    try {
+      await likeAnswer(id, userId);
+      setQnaData((prev) =>
+        prev.map((item) =>
+          item._id === id
+            ? {
+                ...item,
+                answerLikes: {
+                  count: item.answerLikes.count + 1,
+                  likedBy: [...item.answerLikes.likedBy, userId],
+                },
+              }
+            : item
+        )
+      );
+      animateLike(id + "-a");
+    } catch (error) {
+      console.error("Failed to like answer:", error);
+    }
+  };
 
   return (
     <main className="wrapper my-8 flex flex-wrap gap-8 md:gap-12">
       <QuranClass />
-      <section className="flex flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold text-center">Our Achievements</h2>
-        <p className="p-regular-20 md:p-regular-24 text-center">
-          Discover milestones and accomplishments that reflect our journey— from
-          community events and celebrations to meaningful contributions.
-        </p>
-
-        <div className="flex flex-col lg:flex-row gap-6 w-full">
-          {/* Custom Vertical Tabs */}
-          <div className="flex flex-col md:flex-row lg:flex-col gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`w-full px-4 py-2 rounded-lg text-left transition font-medium
-                ${
-                  activeTab === cat
-                    ? "bg-primary text-white shadow-md"
-                    : "bg-gray-100 hover:bg-gray-200"
-                }`}
+      <section className="">
+        <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-500">
+          Ask Islamic Questions
+        </h1>
+        <div className="mb-10 text-center">
+          <h3 className="text-xl font-semibold text-gray-500 mb-3">
+            Have a question about Islam?
+          </h3>
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger asChild>
+              <Button
+                ref={sheetRef}
+                size="lg"
+                className="rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:brightness-110 transition-all"
               >
-                {cat}
-              </button>
-            ))}
-          </div>
+                Ask a Scholar
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="bg-white">
+              <SheetHeader>
+                <SheetTitle>Submit Your Question</SheetTitle>
+                <SheetDescription>
+                  Ask your Islamic question clearly and respectfully. Our
+                  scholars will respond with guidance based on authentic
+                  sources.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="py-5">
+                <QnaForm
+                  type="Create"
+                  refreshQnaData={refreshQnaData}
+                  closeSheet={() => sheetRef.current?.click()}
+                  email={email}
+                />
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
 
-          {/* Tab Content */}
-          <div className="flex-1">
-            <div className="grid grid-cols-1 gap-4 mt-2">
-              {achievements
-                .filter((a) =>
-                  activeTab === "All" ? true : a.category === activeTab
-                )
-                .map((a) => (
-                  <div
-                    key={a._id}
-                    className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row bg-white"
+        <input
+          type="search"
+          placeholder="Search questions..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full mb-12 px-4 py-2 border border-gray-300 rounded-xl text-lg
+                   focus:outline-none focus:ring-4 focus:ring-orange-400 transition"
+        />
+
+        <div className="flex flex-col gap-10">
+          {filteredQnA.length === 0 && (
+            <p className="text-center text-gray-500 italic text-lg">
+              No Islamic questions found.
+            </p>
+          )}
+
+          {filteredQnA.map((item) => {
+            const questionLiked = item.questionLikes.likedBy.includes(userId);
+            const answerLiked = item.answerLikes.likedBy.includes(userId);
+
+            return (
+              <article
+                key={item._id}
+                className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md
+                         hover:shadow-xl transition-shadow duration-300"
+              >
+                <header className="flex justify-between items-start mb-6">
+                  <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
+                    {item.question}
+                  </h3>
+
+                  <button
+                    onClick={() => handleLikeQuestion(item._id)}
+                    aria-label="Like question"
+                    disabled={!userId || questionLiked}
+                    className={`
+                    flex items-center gap-2
+                    text-lg font-semibold
+                    select-none
+                    transition-colors duration-200 ease-in-out
+                    ${
+                      questionLiked
+                        ? "text-orange-600 cursor-default"
+                        : "text-gray-400 hover:text-orange-600 cursor-pointer"
+                    }
+                    ${
+                      likeAnimating === item._id + "-q"
+                        ? "scale-110"
+                        : "scale-100"
+                    }
+                  `}
+                    style={{ willChange: "transform, color" }}
                   >
-                    {a.image && (
-                      <div className="relative md:w-1/3 lg:w-1/4 min-h-72 md:min-h-[200px] lg:min-h-[250px]">
-                        <Image
-                          src={a.image}
-                          alt={a.title}
-                          fill
-                          className="object-cover bg-gray-100 w-full border rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl"
-                        />
-                      </div>
+                    <Heart
+                      size={24}
+                      className={
+                        questionLiked ? "fill-orange-600 text-orange-600" : ""
+                      }
+                    />
+                    <span>{item.questionLikes.count}</span>
+                  </button>
+                </header>
+
+                <section className="pl-6 border-l-4 border-orange-100">
+                  <p className="mb-5 text-gray-700 whitespace-pre-line min-h-[60px]">
+                    {item.answer || (
+                      <em className="text-gray-400 italic">
+                        This question has not been answered by a scholar yet.
+                      </em>
                     )}
-                    <div className="p-4 flex flex-col flex-1">
-                      <div className="mb-2">
-                        <h3 className="text-lg font-bold">{a.title}</h3>
-                        <p className="text-sm text-muted-foreground font-semibold">
-                          {a.category}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-sm">{a.description}</p>
-                      </div>
+                  </p>
+
+                  {item.answer && (
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => handleLikeAnswer(item._id)}
+                        aria-label="Like answer"
+                        disabled={!userId || answerLiked}
+                        className={`
+        flex items-center gap-2
+        text-lg font-semibold
+        select-none
+        transition-colors duration-200 ease-in-out
+        ${
+          answerLiked
+            ? "text-orange-600 cursor-default"
+            : "text-gray-400 hover:text-orange-600 cursor-pointer"
+        }
+        ${likeAnimating === item._id + "-a" ? "scale-110" : "scale-100"}
+      `}
+                        style={{ willChange: "transform, color" }}
+                      >
+                        <Heart
+                          size={24}
+                          className={
+                            answerLiked ? "fill-orange-600 text-orange-600" : ""
+                          }
+                        />
+                        <span>{item.answerLikes.count}</span>
+                      </button>
                     </div>
-                  </div>
-                ))}
-            </div>
-          </div>
+                  )}
+                </section>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
   );
 };
 
-export default Page;
+export default QnAPage;
