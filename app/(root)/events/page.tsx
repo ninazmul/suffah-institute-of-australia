@@ -1,6 +1,5 @@
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
-import QuranClass from "@/components/shared/QuranClass";
 import Search from "@/components/shared/Search";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
@@ -28,11 +27,6 @@ const page = async ({ searchParams }: SearchParamProps) => {
           <br />
           prayers, gatherings, celebrations, and more.
         </p>
-
-        <QuranClass />
-
-        <h2 className="h2-bold">Other Events</h2>
-
         <div className="flex w-full flex-col gap-5 md:flex-row">
           <Search />
           <CategoryFilter />

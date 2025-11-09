@@ -149,9 +149,14 @@ const QnAPage = () => {
   );
 
   return (
-    <main className="wrapper my-8 flex flex-col lg:flex-row gap-8 md:gap-12">
+    <main className="wrapper my-8 flex flex-col lg:flex-row gap-8 md:gap-0">
+      {/* Right Section: QuranClass */}
+      <aside className="lg:w-1/2">
+        <QuranClass />
+      </aside>
+      <div className="hidden lg:block w-[1px] bg-gray-300 mx-8" />
       {/* Left Section: QnA */}
-      <section className="lg:w-2/3">
+      <section className="lg:w-1/2 h-[calc(100vh-6rem)] overflow-y-auto pr-2 custom-scrollbar">
         <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-500">
           Ask Islamic Questions
         </h1>
@@ -294,11 +299,6 @@ const QnAPage = () => {
             })}
         </div>
       </section>
-
-      {/* Right Section: QuranClass */}
-      <aside className="lg:w-1/3">
-        <QuranClass />
-      </aside>
     </main>
   );
 };

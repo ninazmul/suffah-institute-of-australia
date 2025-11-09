@@ -1,10 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -13,14 +14,34 @@ import { Button } from "../ui/button";
 import BookingForm from "@/app/dashboard/components/BookingForm";
 import { getAllBookings } from "@/lib/actions/booking.actions";
 import { getAllTeachers } from "@/lib/actions/teacher.actions";
+import { IBooking } from "@/lib/database/models/booking.model";
+import { ITeacher } from "@/lib/database/models/teacher.model";
 
-export default async function QuranClass() {
-  const bookings = await getAllBookings();
-  const teachers = await getAllTeachers();
+const QuranClass = () => {
+  const [bookings, setBookings] = useState<IBooking[]>([]);
+  const [teachers, setTeachers] = useState<ITeacher[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const bookingsData = await getAllBookings();
+        const teachersData = await getAllTeachers();
+        setBookings(bookingsData);
+        setTeachers(teachersData);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <section className="bg-white flex flex-wrap-reverse items-center justify-center gap-10">
+    <section className="bg-white flex flex-col-reverse items-center justify-center gap-10">
       {/* Left Side - Image */}
-      <div className="flex-1 max-w-md">
+      <div className="flex-1 mb-10">
         <div className="rounded-xl p-4 bg-[#fff5f0]">
           <Image
             src="/assets/images/quranClass.jpeg"
@@ -100,18 +121,20 @@ export default async function QuranClass() {
             <SheetContent className="bg-white">
               <SheetHeader>
                 <SheetTitle>Book Your Class</SheetTitle>
-                <SheetDescription>
-                  Fill out the form below to book your Qur&apos;an class. Please
-                  make sure all details are correct for a smooth and successful
-                  booking.
-                </SheetDescription>
+                <p className="text-gray-500 text-sm mb-2">
+                  Fill out the form below to book your Qur&apos;an class.
+                </p>
               </SheetHeader>
               <div className="py-5">
-                <BookingForm
-                  type="Create"
-                  teachers={teachers}
-                  bookings={bookings}
-                />
+                {loading ? (
+                  <p>Loading...</p>
+                ) : (
+                  <BookingForm
+                    type="Create"
+                    teachers={teachers}
+                    bookings={bookings}
+                  />
+                )}
               </div>
             </SheetContent>
           </Sheet>
@@ -119,4 +142,6 @@ export default async function QuranClass() {
       </div>
     </section>
   );
-}
+};
+
+export default QuranClass;
