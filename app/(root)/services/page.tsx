@@ -91,7 +91,7 @@ export default function ServicesPage() {
 
       {/* Learn about Islam */}
       <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-8 lg:gap-12 border-t border-gray-200 py-12">
-        <div className="w-full lg:w-1/2">
+        {/* <div className="w-full lg:w-1/2">
           <Image
             src="/assets/images/quranClass.jpeg"
             alt="Quran Class"
@@ -99,8 +99,8 @@ export default function ServicesPage() {
             height={500}
             className="rounded-lg w-full"
           />
-        </div>
-        <div className="w-full lg:w-1/2 flex flex-col gap-4 text-gray-700">
+        </div> */}
+        <div className="w-full flex flex-col gap-4 text-gray-700">
           <h3 className="text-2xl font-semibold text-primary">
             Learn about the Religion of Islam
           </h3>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
             below to learn more or book your session.
           </p>
           <Link
-            href="/book"
+            href="/bookings"
             className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 w-fit"
           >
             Join Knowledge Program
