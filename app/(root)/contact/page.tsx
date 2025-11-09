@@ -8,13 +8,13 @@ export default async function ContactPage() {
         <h2 className="h2-bold py-4">Contact Us</h2>
         <ContactUs />
         <p className="p-regular-20 md:p-regular-24 py-4">
-          If you have a question about the religion of Islam,
-          please visit the{" "}
+          if you want to ask a question about the religion Islam please navigate
+          to
           <Link
-            href={"/qna"}
+            href={"/bookings"}
             className="hover:underline text-primary-500 font-semibold"
           >
-            Ask Question
+            Q&A or ‘Ask the Sheikh’
           </Link>{" "}
           page.
         </p>
