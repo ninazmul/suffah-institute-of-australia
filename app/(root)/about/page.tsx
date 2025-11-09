@@ -3,7 +3,7 @@ import Image from "next/image";
 const teamMembers = [
   {
     name: "Mr. Md Atikul Islam",
-    role: "Co-Founder and Public Officer",
+    role: "CEO & Public Officer (Co-Founder)",
     image: "/assets/images/user.png",
     description: `To advance health, education, religion, and social welfare by
     providing essential services and support to underserved communities in
