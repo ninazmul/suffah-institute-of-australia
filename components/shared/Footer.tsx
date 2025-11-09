@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImFacebook, ImWhatsapp, ImYoutube } from "react-icons/im";
+import { ImFacebook } from "react-icons/im";
 
 const Footer = () => {
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="https://www.facebook.com/share/1AcBRGfVQ8/?mibextid=wwXIfr"
+                    href="https://www.facebook.com/SuffahOfAus"
                     target="_blank"
                     className="hover:underline flex items-center gap-2"
                   >
@@ -59,7 +59,7 @@ const Footer = () => {
                     Facebook page
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="https://chat.whatsapp.com/D2Vieg8QIrLFuk1pOzB9wo"
                     target="_blank"
@@ -78,8 +78,9 @@ const Footer = () => {
                     <ImYoutube className="h-4 w-4" />
                     YouTube
                   </Link>
-                </li>
+                </li> */}
               </ul>
+              
             </div>
 
             {/* Legal Links */}
