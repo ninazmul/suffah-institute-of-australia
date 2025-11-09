@@ -14,7 +14,7 @@ export default async function ContactPage() {
             href={"/bookings"}
             className="hover:underline text-primary-500 font-semibold"
           >
-            Q&A or ‘Ask the Sheikh’
+            ‘Ask the Sheikh’
           </Link>{" "}
           page.
         </p>
