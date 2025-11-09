@@ -47,7 +47,7 @@ export async function POST(req: any) {
       </tbody>
     </table>
     <footer style="margin-top: 20px; text-align: center; color: #777; font-size: 12px;">
-      <p>&copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} Suffah Institute of Australia. All rights reserved.</p>
     </footer>
   </div>
 `,
