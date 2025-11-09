@@ -131,9 +131,9 @@ const QnAPage = () => {
   };
 
   return (
-    <main className="wrapper my-8 flex flex-wrap gap-8 md:gap-12">
-      <QuranClass />
-      <section className="">
+    <main className="wrapper my-8 flex flex-col lg:flex-row gap-8 md:gap-12">
+      {/* Left Section: QnA */}
+      <section className="lg:w-2/3">
         <h1 className="text-4xl font-extrabold text-center mb-4 text-orange-500">
           Ask Islamic Questions
         </h1>
@@ -177,8 +177,7 @@ const QnAPage = () => {
           placeholder="Search questions..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full mb-12 px-4 py-2 border border-gray-300 rounded-xl text-lg
-                   focus:outline-none focus:ring-4 focus:ring-orange-400 transition"
+          className="w-full mb-12 px-4 py-2 border border-gray-300 rounded-xl text-lg focus:outline-none focus:ring-4 focus:ring-orange-400 transition"
         />
 
         <div className="flex flex-col gap-10">
@@ -195,8 +194,7 @@ const QnAPage = () => {
             return (
               <article
                 key={item._id}
-                className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md
-                         hover:shadow-xl transition-shadow duration-300"
+                className="border border-gray-200 rounded-2xl p-8 bg-[#fff5f0] shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <header className="flex justify-between items-start mb-6">
                   <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
@@ -207,22 +205,15 @@ const QnAPage = () => {
                     onClick={() => handleLikeQuestion(item._id)}
                     aria-label="Like question"
                     disabled={!userId || questionLiked}
-                    className={`
-                    flex items-center gap-2
-                    text-lg font-semibold
-                    select-none
-                    transition-colors duration-200 ease-in-out
-                    ${
+                    className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
                       questionLiked
                         ? "text-orange-600 cursor-default"
                         : "text-gray-400 hover:text-orange-600 cursor-pointer"
-                    }
-                    ${
+                    } ${
                       likeAnimating === item._id + "-q"
                         ? "scale-110"
                         : "scale-100"
-                    }
-                  `}
+                    }`}
                     style={{ willChange: "transform, color" }}
                   >
                     <Heart
@@ -250,18 +241,15 @@ const QnAPage = () => {
                         onClick={() => handleLikeAnswer(item._id)}
                         aria-label="Like answer"
                         disabled={!userId || answerLiked}
-                        className={`
-        flex items-center gap-2
-        text-lg font-semibold
-        select-none
-        transition-colors duration-200 ease-in-out
-        ${
-          answerLiked
-            ? "text-orange-600 cursor-default"
-            : "text-gray-400 hover:text-orange-600 cursor-pointer"
-        }
-        ${likeAnimating === item._id + "-a" ? "scale-110" : "scale-100"}
-      `}
+                        className={`flex items-center gap-2 text-lg font-semibold select-none transition-colors duration-200 ease-in-out ${
+                          answerLiked
+                            ? "text-orange-600 cursor-default"
+                            : "text-gray-400 hover:text-orange-600 cursor-pointer"
+                        } ${
+                          likeAnimating === item._id + "-a"
+                            ? "scale-110"
+                            : "scale-100"
+                        }`}
                         style={{ willChange: "transform, color" }}
                       >
                         <Heart
@@ -280,6 +268,11 @@ const QnAPage = () => {
           })}
         </div>
       </section>
+
+      {/* Right Section: QuranClass */}
+      <aside className="lg:w-1/3">
+        <QuranClass />
+      </aside>
     </main>
   );
 };
