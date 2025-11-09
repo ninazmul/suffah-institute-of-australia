@@ -9,7 +9,7 @@ export default async function ContactPage() {
         <ContactUs />
         <p className="p-regular-20 md:p-regular-24 py-4">
           if you want to ask a question about the religion Islam please navigate
-          to
+          to{" "}
           <Link
             href={"/bookings"}
             className="hover:underline text-primary-500 font-semibold"
