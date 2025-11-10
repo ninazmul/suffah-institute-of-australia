@@ -77,7 +77,7 @@ const Page = () => {
                         src={a.image}
                         alt={a.title}
                         fill
-                        className="object-cover bg-gray-100 w-full border rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl"
+                        className="object-contain bg-gray-100 w-full border rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl"
                       />
                     </div>
                   )}

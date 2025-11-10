@@ -18,17 +18,31 @@ import { useUploadThing } from "@/lib/uploadthing";
 import { FileUploader } from "@/components/shared/FileUploader";
 import { createAchievement } from "@/lib/actions/achievement.actions";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // ✅ Updated schema based on model
 export const achievementFormSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters."),
-  description: z.string().min(10, "Description must be at least 10 characters."),
+  description: z
+    .string()
+    .min(10, "Description must be at least 10 characters."),
   category: z.string().min(2, "Category is required."),
   image: z.string().optional(),
 });
 
-const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) => {
+const AchievementForm = ({
+  userId,
+  type,
+}: {
+  userId: string;
+  type: "Create";
+}) => {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
   const { startUpload } = useUploadThing("imageUploader");
@@ -62,7 +76,13 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
         });
 
         if (newAchievement) {
-          form.reset();
+          form.reset({
+            title: "",
+            description: "",
+            category: "",
+            image: "",
+          });
+          setFiles([]);
           router.push(`/dashboard/achievements`);
         }
       }
@@ -98,7 +118,10 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Textarea placeholder="Write achievement details..." {...field} />
+                <Textarea
+                  placeholder="Write achievement details..."
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -112,13 +135,20 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Education Care Program">Education Care Program</SelectItem>
-                    <SelectItem value="Healthcare Program">Healthcare Program</SelectItem>
+                    <SelectItem value="Education Care Program">
+                      Education Care Program
+                    </SelectItem>
+                    <SelectItem value="Healthcare Program">
+                      Healthcare Program
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -128,7 +158,7 @@ const AchievementForm = ({ userId, type }: { userId: string; type: "Create" }) =
         />
 
         {/* Image Upload Field */}
-         <FormField
+        <FormField
           control={form.control}
           name="image"
           render={({ field }) => (
