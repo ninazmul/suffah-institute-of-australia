@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "Healthcare Initiatives",
     "Scholarship Programs",
     "Community Outreach",
+    "Humanitarian Projects",
     "Charitable Organization",
     "Nonprofit Charity",
   ],
