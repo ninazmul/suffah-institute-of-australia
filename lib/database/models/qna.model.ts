@@ -1,7 +1,7 @@
-import { Schema, model, models, Document } from "mongoose";
+import { Schema, model, models, Document, Types } from "mongoose";
 
 export interface IQna extends Document {
-  _id: string;
+  _id: Types.ObjectId;
   email: string;
   question: string;
   answer?: string;

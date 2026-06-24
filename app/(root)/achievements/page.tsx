@@ -66,9 +66,9 @@ const Page = () => {
               .filter((a) =>
                 activeTab === "All" ? true : a.category === activeTab
               )
-              .map((a) => (
+              .map((a, idx) => (
                 <div
-                  key={a._id}
+                  key={idx}
                   className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row bg-white"
                 >
                   {a.image && (

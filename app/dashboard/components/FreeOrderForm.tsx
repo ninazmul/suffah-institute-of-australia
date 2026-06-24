@@ -70,7 +70,7 @@ const FreeOrderForm = ({ event, closeModal }: FreeOrderProps) => {
       timezone: "",
       media: "",
       group: "",
-      eventId: event._id,
+      eventId: event._id.toString(),
       eventTitle: event.title,
     },
   });
@@ -79,7 +79,7 @@ const FreeOrderForm = ({ event, closeModal }: FreeOrderProps) => {
     try {
       const newOrder = await createFreeOrder({
         ...values,
-        eventId: event._id,
+        eventId: event._id.toString(),
         eventTitle: event.title,
       });
 

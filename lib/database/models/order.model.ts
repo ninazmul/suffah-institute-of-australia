@@ -1,4 +1,4 @@
-import { Schema, model, models, Document } from "mongoose";
+import { Schema, model, models, Document, Types } from "mongoose";
 
 export interface IOrder extends Document {
   createdAt: Date;
@@ -17,7 +17,7 @@ export interface IOrder extends Document {
 }
 
 export type IOrderItem = {
-  _id: string;
+  _id: Types.ObjectId;
   totalAmount: string;
   adults: string;
   kids: string;

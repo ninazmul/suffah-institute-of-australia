@@ -1,4 +1,4 @@
-import { Schema, model, models, Document } from "mongoose";
+import { Schema, model, models, Document, Types } from "mongoose";
 
 export interface IFreeOrder extends Document {
   createdAt: Date;
@@ -16,7 +16,7 @@ export interface IFreeOrder extends Document {
 }
 
 export type IFreeOrderItem = {
-  _id: string;
+  _id: Types.ObjectId;
   name: string;
   address: string;
   number: string;

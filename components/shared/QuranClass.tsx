@@ -131,7 +131,7 @@ const QuranClass = () => {
                 ) : (
                   <BookingForm
                     type="Create"
-                    teachers={teachers}
+                    teachers={teachers.map((t) => ({ _id: String(t._id), name: t.name }))}
                     bookings={bookings}
                   />
                 )}

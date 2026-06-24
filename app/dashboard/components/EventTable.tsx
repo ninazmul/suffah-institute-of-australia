@@ -117,7 +117,7 @@ const EventTable = ({
                 const hidePrice = collectionType === "My_Tickets";
 
                 return (
-                  <TableRow key={event._id}>
+                  <TableRow key={index}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>
                       <Image
@@ -164,7 +164,7 @@ const EventTable = ({
                             height={20}
                           />
                         </Link>
-                        <DeleteConfirmation eventId={event._id} />
+                        <DeleteConfirmation eventId={event._id.toString()} />
                       </div>
                     </TableCell>
                   </TableRow>

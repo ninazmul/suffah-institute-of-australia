@@ -180,7 +180,7 @@ const BookingTable = ({
         </TableHeader>
         <TableBody>
           {paginatedBookings?.map((booking, index) => (
-            <TableRow key={booking._id} className="hover:bg-gray-100">
+            <TableRow key={index} className="hover:bg-gray-100">
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -240,7 +240,7 @@ const BookingTable = ({
                         const newProgress =
                           formData.get("progress")?.toString() || "";
                         try {
-                          const response = await updateBooking(booking._id, {
+                          const response = await updateBooking(booking._id.toString(), {
                             progress: newProgress,
                           });
                           if (response) {
@@ -280,7 +280,7 @@ const BookingTable = ({
                 <Button
                   variant="ghost"
                   onClick={() =>
-                    handleTogglePaymentStatus(booking._id, booking.payment)
+                    handleTogglePaymentStatus(booking._id.toString(), booking.payment)
                   }
                 >
                   {booking.payment === "Unpaid" ? (
@@ -294,7 +294,7 @@ const BookingTable = ({
                 <Button
                   variant="ghost"
                   onClick={() =>
-                    handleToggleBookingStatus(booking._id, booking.status)
+                    handleToggleBookingStatus(booking._id.toString(), booking.status)
                   }
                 >
                   {booking.status === "Pending" ? (
@@ -343,7 +343,7 @@ const BookingTable = ({
                     <div className="py-5">
                       <BookingForm
                         booking={booking}
-                        bookingId={booking._id}
+                        bookingId={booking._id.toString()}
                         type="Update"
                         teachers={teachers}
                         bookings={bookings}
@@ -352,7 +352,7 @@ const BookingTable = ({
                   </SheetContent>
                 </Sheet>
                 <Button
-                  onClick={() => setConfirmDeleteId(booking._id)}
+                  onClick={() => setConfirmDeleteId(booking._id.toString())}
                   variant="outline"
                   className="text-red-500"
                 >

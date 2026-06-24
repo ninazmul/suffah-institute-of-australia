@@ -59,10 +59,10 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
       </SelectTrigger>
       <SelectContent>
         {categories.length > 0 &&
-          categories.map((category) => (
+          categories.map((category, idx) => (
             <SelectItem
-              key={category._id}
-              value={category._id}
+              key={idx}
+              value={category._id.toString()}
               className="select-item p-regular-14"
             >
               {category.name}

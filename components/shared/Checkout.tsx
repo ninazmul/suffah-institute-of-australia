@@ -45,7 +45,7 @@ const Checkout = ({ event }: { event: IEvent }) => {
     try {
       const order = {
         eventTitle: event.title,
-        eventId: event._id,
+        eventId: String(event._id),
         price: totalPrice.toFixed(2),
         isFree: event.isFree,
         buyerName,
@@ -56,7 +56,7 @@ const Checkout = ({ event }: { event: IEvent }) => {
         infants,
         note,
         totalAmount: totalPrice,
-        createdAt: new Date(), 
+        createdAt: new Date(),
       };
 
       await createOrder(order);
@@ -201,8 +201,8 @@ const Checkout = ({ event }: { event: IEvent }) => {
               {loading
                 ? "Processing..."
                 : !event.isFree
-                ? "Register"
-                : "Register"}
+                  ? "Register"
+                  : "Register"}
             </Button>
             <Button
               type="button"

@@ -119,7 +119,7 @@ const AchievementsTable = ({
         </TableHeader>
         <TableBody>
           {paginatedAchievements.map((achievement, index) => (
-            <TableRow key={achievement._id} className="hover:bg-gray-100">
+            <TableRow key={index} className="hover:bg-gray-100">
               <TableCell>
                 {(currentPage - 1) * itemsPerPage + index + 1}
               </TableCell>
@@ -136,7 +136,7 @@ const AchievementsTable = ({
               <TableCell>{achievement.category}</TableCell>
               <TableCell>
                 <Button
-                  onClick={() => setConfirmDeleteId(achievement._id)}
+                  onClick={() => setConfirmDeleteId(achievement._id.toString())}
                   variant={"outline"}
                   className="text-red-500"
                 >
