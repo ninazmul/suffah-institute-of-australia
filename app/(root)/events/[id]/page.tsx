@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps) {
     event.description ||
     "Join this exciting event and explore amazing opportunities!";
   const eventImage = event.imageUrl || "/assets/images/logo.png";
-  const eventUrl = `https://www.osmci.org/events/${event._id}`;
+  const eventUrl = `https://www.suffahaustralia.org.au/events/${event._id}`;
 
   return {
     title: eventTitle,

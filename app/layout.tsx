@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: [
     "Muslim Community",
     "Islamic Events",
-    "OSMCI",
+    "SIA",
     "Suffah Institute of Australia",
     "Islamic Education",
     "Community Welfare",
@@ -47,17 +47,17 @@ export const metadata: Metadata = {
     apple: "/assets/images/placeholder.png",
   },
   alternates: {
-    canonical: "https://www.osmci.org/",
+    canonical: "https://www.suffahaustralia.org.au/",
   },
   openGraph: {
     title: "Suffah Institute of Australia | Empowering the Ummah",
     description:
-      "Join Suffah Institute of Australia Incorporation (OSMCI) in fostering unity and empowerment through educational and social initiatives.",
-    url: "https://www.osmci.org/",
-    siteName: "OSMCI",
+      "Join Suffah Institute of Australia (SIA) is dedicated to uplifting the Muslim community through education, events, and social initiatives.",
+    url: "https://www.suffahaustralia.org.au/",
+    siteName: "SIA",
     images: [
       {
-        url: "https://www.osmci.org/assets/images/one-soul-muslim-community.jpg",
+        url: "https://www.suffahaustralia.org.au/assets/images/sia.webp",
         width: 1200,
         height: 630,
         alt: "Suffah Institute of Australia",
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Suffah Institute of Australia | Empowering the Ummah",
     description:
-      "Join Suffah Institute of Australia Incorporation (OSMCI) in fostering unity and empowerment through educational and social initiatives.",
-    images: ["/assets/images/one-soul-muslim-community.jpg"],
+      "Join Suffah Institute of Australia (SIA) is dedicated to uplifting the Muslim community through education, events, and social initiatives.",
+    images: ["/assets/images/sia.webp"],
   },
 };
 
