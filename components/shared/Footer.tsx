@@ -84,7 +84,7 @@ const Footer = () => {
             </div>
 
             {/* Legal Links */}
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-4 text-lg">Legal</h4>
               <ul className="space-y-2">
                 <li>
@@ -106,7 +106,7 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <hr className="my-6 border-t border-white" />
