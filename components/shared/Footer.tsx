@@ -112,7 +112,7 @@ const Footer = () => {
         <hr className="my-6 border-t border-white" />
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
           <p className="text-xs">
-            Copyright © 2025{" "}
+            Copyright © {new Date().getFullYear()} {" "}
             <Link href="/" className="hover:underline">
               Suffah Institute of Australia
             </Link>{" "}
