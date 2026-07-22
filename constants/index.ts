@@ -19,10 +19,10 @@ export const headerLinks = [
     label: "Events",
     route: "/events",
   },
-  {
-    label: "Gallery",
-    route: "/gallery",
-  },
+  // {
+  //   label: "Gallery",
+  //   route: "/gallery",
+  // },
   {
     label: "About Us",
     route: "/about",
