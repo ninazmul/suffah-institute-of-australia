@@ -51,7 +51,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="https://www.facebook.com/SuffahOfAus"
+                    href="https://www.facebook.com/profile.php?id=61590304006625"
                     target="_blank"
                     className="hover:underline flex items-center gap-2"
                   >
