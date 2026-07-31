@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImFacebook } from "react-icons/im";
+import { ImFacebook, ImLinkedIn } from "react-icons/im";
 
 const Footer = () => {
   return (
@@ -57,6 +57,16 @@ const Footer = () => {
                   >
                     <ImFacebook className="h-4 w-4" />
                     Facebook page
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/suffah-institute-of-australia-a-5a1aa4404/"
+                    target="_blank"
+                    className="hover:underline flex items-center gap-2"
+                  >
+                    <ImLinkedIn className="h-4 w-4" />
+                    LinkedIn
                   </Link>
                 </li>
                 {/* <li>
