@@ -416,6 +416,10 @@ body {
 
 
 /* STYLE 2026 */
+header.header {
+  background-color: #085251;
+}
+
 footer.footer {
   background-color: #0c2021;
   color: var(--sidebar-foreground);

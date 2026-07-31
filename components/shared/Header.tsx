@@ -18,7 +18,7 @@ export default async function Header() {
   const email = await getUserEmailById(userId);
   const adminStatus = await isAdmin(email);
   return (
-    <header className="w-full text-white bg-gradient-to-r from-primary-900 to-primary-500">
+    <header className="header w-full text-white bg-gradient-to-r from-primary-900 to-primary-500">
       <div className="wrapper flex items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-2">
           <Image
