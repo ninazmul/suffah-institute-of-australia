@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-gradient-to-r from-primary-900 to-primary-500 text-white dark:text-green-200 py-8">
+    <footer className="footer text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-6 items-center">
           <div>
