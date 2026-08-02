@@ -70,7 +70,7 @@ const Footer = () => {
                     LinkedIn
                   </Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link
                     href="https://chat.whatsapp.com/D2Vieg8QIrLFuk1pOzB9wo"
                     target="_blank"
@@ -89,13 +89,13 @@ const Footer = () => {
                     <ImYoutube className="h-4 w-4" />
                     YouTube
                   </Link>
-                </li> */}
+                </li>
               </ul>
               
             </div>
 
             {/* Legal Links */}
-            {/* <div>
+            <div>
               <h4 className="font-semibold mb-4 text-lg">Legal</h4>
               <ul className="space-y-2">
                 <li>
@@ -117,7 +117,7 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </div> */}
+            </div>
           </div>
         </div>
         <hr className="my-6 border-t border-white" />
