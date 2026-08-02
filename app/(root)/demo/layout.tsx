@@ -3,7 +3,7 @@ import Header from "@/components/sharedNew2026/Header";
 import ScrollHeaderWrapper from "@/components/shared/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
 
-export default function RootLayout({
+export default function DemoLayout({
   children,
 }: {
   children: React.ReactNode;
