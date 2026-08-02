@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import "./globals.css";
+import "./globalsNew2026.css";
 
 export default function ServicesPage() {
   const services = [
