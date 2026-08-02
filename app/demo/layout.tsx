@@ -1,6 +1,6 @@
 import Footer from "@/components/sharedNew2026/Footer";
 import Header from "@/components/sharedNew2026/Header";
-import ScrollHeaderWrapper from "@/components/shared/ScrollHeaderWrapper";
+import ScrollHeaderWrapper from "@/components/sharedNew2026/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
 
 export default function DemoLayout({
@@ -14,7 +14,7 @@ export default function DemoLayout({
       <ScrollHeaderWrapper>
         <Header />
       </ScrollHeaderWrapper>
-      <main className="flex-1 pt-28">{children}</main>
+      <main className="flex-1 pt-28 __main">{children}</main>
       <Footer />
     </div>
   );
