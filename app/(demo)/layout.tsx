@@ -1,8 +1,9 @@
-import Footer from "@/components/sharedNew2026/Footer";
-import Header from "@/components/sharedNew2026/Header";
-import ScrollHeaderWrapper from "@/components/sharedNew2026/ScrollHeaderWrapper";
+import Footer from "@/components/sharedNew/Footer";
+import Header from "@/components/sharedNew/Header";
+import ScrollHeaderWrapper from "@/components/sharedNew/ScrollHeaderWrapper";
+// @ts-expect-error - CSS import type declaration is missing in this workspace
+import "../globalsNew.css";
 import { Toaster } from "react-hot-toast";
-import "./globalsNew2026.css";
 
 export default function DemoLayout({
   children,
