@@ -2,7 +2,7 @@ import Footer from "@/components/sharedNew2026/Footer";
 import Header from "@/components/sharedNew2026/Header";
 import ScrollHeaderWrapper from "@/components/sharedNew2026/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
-import "../globalsNew2026.css";
+import "./globalsNew2026.css";
 
 export default function DemoLayout({
   children,
