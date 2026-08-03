@@ -56,6 +56,7 @@ export default function DemoPage() {
   return (
     <div className="relative min-h-screen bg-gray-900 text-white overflow-hidden">
       {/* Background with overlay */}
+      <h1>TEST</h1>
       <div className="absolute inset-0">
         <Image
           src="/assets/images/homeless.jpeg"
