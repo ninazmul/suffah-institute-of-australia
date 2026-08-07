@@ -426,3 +426,11 @@ footer.footer {
   padding: 2rem 0;
   z-index: 1000;
 }
+
+.demo-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: red;
+  color: white;
+}

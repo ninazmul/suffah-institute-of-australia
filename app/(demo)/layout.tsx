@@ -8,6 +8,8 @@ import { cookies } from "next/headers";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { Toaster } from "react-hot-toast";
 
+import './demo.css';
+
 export default async function DemoLayout({
   children,
 }: {
@@ -30,7 +32,7 @@ export default async function DemoLayout({
     <SidebarProvider defaultOpen={defaultOpen}>
       <AdminSidebar />
       <Toaster />
-      <main className="flex-1 h-screen mx-auto overflow-y-auto">
+      <main className="demo-layout">
         <div className="flex justify-between items-center p-4 w-full border-b text-white bg-gradient-to-r from-primary-900 to-primary-500">
           <SidebarTrigger />
           <SignedIn>
