@@ -1,3 +1,4 @@
+import * as React from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { isAdmin } from "@/lib/actions/admin.actions";
 import { getUserEmailById } from "@/lib/actions/user.actions";
@@ -8,7 +9,15 @@ import { cookies } from "next/headers";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import { Toaster } from "react-hot-toast";
 
-import './demo.css';
+import './demo-theme.css';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+}
 
 export default async function DemoLayout({
   children,
