@@ -1,5 +1,5 @@
-import Footer from "@/components/shared/Footer";
-import Header from "@/components/shared/Header";
+import Footer from "@/components/sharedNew/Footer";
+import Header from "@/components/sharedNew/Header";
 import ScrollHeaderWrapper from "@/components/shared/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
 
