@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer text-white py-8">
+    <footer className="footer bg-gradient-to-r from-primary-900 to-primary-500 text-white dark:text-green-200 py-8">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-6 items-center">
           <div>
@@ -70,7 +70,7 @@ const Footer = () => {
                     LinkedIn
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="https://chat.whatsapp.com/D2Vieg8QIrLFuk1pOzB9wo"
                     target="_blank"
@@ -89,13 +89,13 @@ const Footer = () => {
                     <ImYoutube className="h-4 w-4" />
                     YouTube
                   </Link>
-                </li>
+                </li> */}
               </ul>
               
             </div>
 
             {/* Legal Links */}
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-4 text-lg">Legal</h4>
               <ul className="space-y-2">
                 <li>
@@ -117,7 +117,7 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <hr className="my-6 border-t border-white" />
