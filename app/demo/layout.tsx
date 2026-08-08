@@ -18,7 +18,7 @@ export default function DemoLayout({
       <ScrollHeaderWrapper>
         <Header />
       </ScrollHeaderWrapper>
-      <main className="flex-1 pt-28">{children}</main>
+      <main className="main-container">{children}</main>
       <Footer />
     </div>
   );
