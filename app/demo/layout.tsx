@@ -1,53 +1,25 @@
-import * as React from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { isAdmin } from "@/lib/actions/admin.actions";
-import { getUserEmailById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import Footer from "@/components/shared/Footer";
+import Header from "@/components/shared/Header";
+import ScrollHeaderWrapper from "@/components/shared/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
 
 import './demo-theme.css';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elemName: string]: any;
-    }
-  }
-}
 
-export default async function DemoLayout({
+
+export default function DemoLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
-
-  const { sessionClaims } = await auth();
-
-  const userId = sessionClaims?.userId as string;
-  const email = await getUserEmailById(userId);
-  const adminStatus = await isAdmin(email);
-
-  if (!adminStatus) {
-    redirect("/");
-  }
-  
   return (
-    <SidebarProvider defaultOpen={defaultOpen}>
+    <div className="flex h-screen flex-col">
       <Toaster />
-      <main className="demo-layout">
-        <div className="flex justify-between items-center p-4 w-full border-b text-white bg-gradient-to-r from-primary-900 to-primary-500">
-          <SidebarTrigger />
-          <SignedIn>
-            <UserButton afterSwitchSessionUrl="/" />
-          </SignedIn>
-        </div>
-        {children}
-      </main>
-    </SidebarProvider>
+      <ScrollHeaderWrapper>
+        <Header />
+      </ScrollHeaderWrapper>
+      <main className="flex-1 pt-28">{children}</main>
+      <Footer />
+    </div>
   );
 }
