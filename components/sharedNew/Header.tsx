@@ -33,6 +33,27 @@ export default async function Header() {
             </h3>
           </div>
         </Link>
+        
+      </div>
+
+      <div className="wrapper flex items-center justify-between gap-2">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/assets/images/logo.png"
+            width={100}
+            height={100}
+            className="w-10 h-10 md:w-8 md:h-8 lg:w-12 lg:h-12"
+            priority
+            quality={100}
+            alt="Suffah Institute of Australia logo"
+          />{" "}
+        </Link>
+        <div>
+          <nav className="nav-container lg:flex-between hidden w-full">
+            <NavItems />
+          </nav>
+          <MobileNav />
+        </div>
         <div className="header-links">
           <div className="flex items-center gap-3">
             <SignedIn>
@@ -61,34 +82,6 @@ export default async function Header() {
             </SignedOut>
           </div>
           <Donation />
-        </div>
-      </div>
-
-      <hr className=" border-t border-white" />
-
-      <div className="wrapper flex items-center justify-between gap-2">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/assets/images/logo.png"
-            width={100}
-            height={100}
-            className="w-10 h-10 md:w-8 md:h-8 lg:w-12 lg:h-12"
-            priority
-            quality={100}
-            alt="Suffah Institute of Australia logo"
-          />{" "}
-        </Link>
-        <div>
-          <nav className="nav-container lg:flex-between hidden w-full">
-            <NavItems />
-          </nav>
-          <MobileNav />
-        </div>
-
-      </div>
-
-      <div className="wrapper flex items-center justify-between">
-        <div className="flex items-center gap-x-2">
         </div>
       </div>
     </header>
