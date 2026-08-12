@@ -33,33 +33,35 @@ export default async function Header() {
             </h3>
           </div>
         </Link>
-        <div className="flex items-center gap-3">
-          <SignedIn>
-            {adminStatus && (
-              <Button
-                asChild
-                variant={"outline"}
-                size={"sm"}
-                className="rounded-full border-white"
-              >
-                <Link href="/dashboard">
-                  <Shield />
-                  Admin
+        <div className="header-links">
+          <div className="flex items-center gap-3">
+            <SignedIn>
+              {adminStatus && (
+                <Button
+                  asChild
+                  variant={"outline"}
+                  size={"sm"}
+                  className="rounded-full border-white"
+                >
+                  <Link href="/dashboard">
+                    <Shield />
+                    Admin
+                  </Link>
+                </Button>
+              )}
+              <UserButton afterSwitchSessionUrl="/" />
+            </SignedIn>
+            <SignedOut>
+              <Button asChild variant={"outline"} className="rounded-full">
+                <Link href="/sign-in">
+                  <LogIn />
+                  <span className="">Login</span>
                 </Link>
               </Button>
-            )}
-            <UserButton afterSwitchSessionUrl="/" />
-          </SignedIn>
-          <SignedOut>
-            <Button asChild variant={"outline"} className="rounded-full">
-              <Link href="/sign-in">
-                <LogIn />
-                <span className="">Login</span>
-              </Link>
-            </Button>
-          </SignedOut>
+            </SignedOut>
+          </div>
+          <Donation />
         </div>
-        <Donation />
       </div>
 
       <hr className=" border-t border-white" />
