@@ -77,7 +77,7 @@ export default async function Header() {
           />{" "}
         </Link>
         <div>
-          <nav className="lg:flex-between hidden w-full max-w-xs">
+          <nav className="nav-container lg:flex-between hidden w-full">
             <NavItems />
           </nav>
           <MobileNav />
