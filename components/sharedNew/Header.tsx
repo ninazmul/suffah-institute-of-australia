@@ -21,7 +21,7 @@ export default async function Header() {
     <header className="header w-full text-white">
       <div className="wrapper flex items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-2">
-          <h1 className="md:text-3xl lg:text-5xl font-serif font-bold text-white hidden md:flex">
+          <h1 className="brand-title font-bold text-white hidden md:flex">
             Suffah Institute of Australia
           </h1>
           <div className="flex md:hidden flex-col items-start justify-start">
