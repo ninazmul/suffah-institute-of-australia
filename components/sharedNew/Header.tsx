@@ -24,7 +24,7 @@ export default async function Header() {
           <h1 className="brand-title font-bold text-white hidden md:flex">
             Suffah Institute of Australia
           </h1>
-          <div className="flex md:hidden flex-col items-start justify-start">
+          <div className="flex md:hidden flex-col items-start justify-center">
             <h1 className="text-xl font-serif font-bold text-white">
               Suffah Institute
             </h1>
