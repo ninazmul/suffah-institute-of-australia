@@ -434,3 +434,14 @@ footer.footer {
   background-color: red;
   color: white;
 }
+
+.navbar--capsule.wrapper {
+    background: rgba(0,0,0,0.5);
+    border-radius: 4rem;
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+.header-links {
+    display: flex;
+}
