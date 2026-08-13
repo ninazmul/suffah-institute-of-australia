@@ -19,7 +19,7 @@ export default async function Header() {
   const adminStatus = await isAdmin(email);
   return (
     <header className="header w-full text-white">
-      <div className="wrapper flex items-center">
+      <div className="navbar--capsule wrapper flex items-center">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="brand-title font-bold text-white hidden md:flex">
             Suffah Institute of Australia
