@@ -1,14 +1,14 @@
 export const headerLinks = [
-  {
-    label: "Home",
-    route: "/",
-  },
+  // {
+  //   label: "Home",
+  //   route: "/",
+  // },
   {
     label: "Services",
     route: "/services",
   },
   {
-    label: "Our Achievements",
+    label: "Achievements",
     route: "/achievements",
   },
   {
@@ -31,10 +31,10 @@ export const headerLinks = [
     label: "Contact Us",
     route: "/contact",
   },
-  {
-    label: "My Profile",
-    route: "/profile",
-  },
+  // {
+  //   label: "My Profile",
+  //   route: "/profile",
+  // },
 ];
 
 export const eventDefaultValues = {
