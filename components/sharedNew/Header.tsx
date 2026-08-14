@@ -19,13 +19,13 @@ export default async function Header() {
   const adminStatus = await isAdmin(email);
   return (
     <header className="header w-full text-white">
-      <div className="wrapper flex items-center">
+      <div className="wrapper flex items-center justify-center">
         <Link href="/" className="flex items-center gap-2">
-          <h1 className="brand-title font-bold text-white hidden md:flex">
+          <h1 className="brand-title font-normal text-white hidden md:flex">
             Suffah Institute of Australia
           </h1>
           <div className="flex md:hidden flex-col items-start justify-center">
-            <h1 className="text-xl font-serif font-bold text-white">
+            <h1 className="text-xl font-serif font-nrmal text-white">
               Suffah Institute
             </h1>
             <h3 className="font-serif font-semibold text-white text-xs">
