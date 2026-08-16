@@ -1,4 +1,3 @@
-'use client';
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,7 +10,7 @@ import Donation from "./Donation";
 import { auth } from "@clerk/nextjs/server";
 import { getUserEmailById } from "@/lib/actions/user.actions";
 import { isAdmin } from "@/lib/actions/admin.actions";
-import { useEffect, useState } from "react";
+import HeaderAnimation from "./HeaderAnimation";
 
 export default async function Header() {
   const { sessionClaims } = await auth();
@@ -20,34 +19,8 @@ export default async function Header() {
   const email = await getUserEmailById(userId);
   const adminStatus = await isAdmin(email);
 
-  const [ isSticky, setIsSticky ] = useState(false);
-  const [ hasInitAnimation, setHasInitAnimation ] = useState(false);
-
-  useEffect(() => {
-    setHasInitAnimation(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
-  
-    handleScroll();
-  
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
   return (
-    <header className={`header w-full text-white ${isSticky ? "sticky" : ""} ${hasInitAnimation ? "init-animation" : ""}`}>
+    <header className={`${HeaderAnimation()} header w-full text-white`}>
       <div className="wrapper flex items-center justify-center">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="brand-title font-normal text-white hidden md:flex">
