@@ -40,8 +40,10 @@ export default async function Header() {
   
     handleScroll();
   
-    window.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
