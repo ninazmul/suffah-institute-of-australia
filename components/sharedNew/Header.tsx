@@ -36,10 +36,12 @@ export default async function Header() {
       }
     }
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
   
     handleScroll();
   
     window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleScroll);
   }, []);
 
   return (
