@@ -20,7 +20,7 @@ export default async function Header() {
   const adminStatus = await isAdmin(email);
 
   return (
-    <header className={`${HeaderAnimation()} header w-full text-white`}>
+    <header className={`${HeaderAnimation} header w-full text-white`}>
       <div className="wrapper flex items-center justify-center">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="brand-title font-normal text-white hidden md:flex">
