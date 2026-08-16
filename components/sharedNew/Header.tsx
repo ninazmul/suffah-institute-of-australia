@@ -10,6 +10,7 @@ import Donation from "./Donation";
 import { auth } from "@clerk/nextjs/server";
 import { getUserEmailById } from "@/lib/actions/user.actions";
 import { isAdmin } from "@/lib/actions/admin.actions";
+import { useEffect, useState } from "react";
 
 export default async function Header() {
   const { sessionClaims } = await auth();
@@ -17,8 +18,24 @@ export default async function Header() {
   const userId = sessionClaims?.userId as string;
   const email = await getUserEmailById(userId);
   const adminStatus = await isAdmin(email);
+
+  const [ isSticky, setIsSticky ] = useState(false);
+  const [ hasInitAnimation, setHasInitAnimation ] = useState(false);
+
+  useEffect(() => {
+    setHasInitAnimation(true);
+  });
+
+  useEffect(() => {
+    if (window.scrollY > 30) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  });
+  
   return (
-    <header className="header w-full text-white">
+    <header className={`header w-full text-white ${isSticky ? "sticky" : ""} ${hasInitAnimation ? "init-animation" : ""}`}>
       <div className="wrapper flex items-center justify-center">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="brand-title font-normal text-white hidden md:flex">
