@@ -25,7 +25,7 @@ export default async function Header() {
 
   useEffect(() => {
     setHasInitAnimation(true);
-  });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +40,7 @@ export default async function Header() {
     handleScroll();
   
     window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   return (
     <header className={`header w-full text-white ${isSticky ? "sticky" : ""} ${hasInitAnimation ? "init-animation" : ""}`}>
