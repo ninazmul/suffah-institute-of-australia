@@ -28,13 +28,20 @@ export default async function Header() {
   });
 
   useEffect(() => {
-    if (window.scrollY > 30) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
     }
-  });
+    window.addEventListener("scroll", handleScroll);
   
+    handleScroll();
+  
+    window.removeEventListener("scroll", handleScroll);
+  });
+
   return (
     <header className={`header w-full text-white ${isSticky ? "sticky" : ""} ${hasInitAnimation ? "init-animation" : ""}`}>
       <div className="wrapper flex items-center justify-center">
