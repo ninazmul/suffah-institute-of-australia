@@ -38,7 +38,7 @@ export default async function Header() {
 
       </div>
 
-      <div className="wrapper navbar--capsule flex items-center justify-between gap-2">
+      <div className="wrapper flex items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/assets/images/logo.png"
@@ -50,40 +50,40 @@ export default async function Header() {
             alt="Suffah Institute of Australia logo"
           />{" "}
         </Link>
-        <div>
-          <nav className="nav-container lg:flex-between hidden w-full">
-            <NavItems />
-          </nav>
-          <MobileNav />
-        </div>
-        <div className="header-links">
-          <div className="flex items-center gap-3">
-            <SignedIn>
-              {adminStatus && (
-                <Button
-                  asChild
-                  variant={"outline"}
-                  size={"sm"}
-                  className="rounded-full border-white"
-                >
-                  <Link href="/dashboard">
-                    <Shield />
-                    Admin
-                  </Link>
-                </Button>
-              )}
-              <UserButton afterSwitchSessionUrl="/" />
-            </SignedIn>
-            <SignedOut>
-              <Button asChild variant={"outline"} className="rounded-full">
-                <Link href="/sign-in">
-                  <LogIn />
-                  <span className="">Login</span>
-                </Link>
-              </Button>
-            </SignedOut>
+        <div className="navbar--capsule">
+          <div>
+            <nav className="nav-container lg:flex-between hidden w-full">
+              <NavItems />
+            </nav>
+            <MobileNav />
           </div>
           <Donation />
+        </div>
+        <div className="flex items-center gap-3">
+          <SignedIn>
+            {adminStatus && (
+              <Button
+                asChild
+                variant={"outline"}
+                size={"sm"}
+                className="rounded-full border-white"
+              >
+                <Link href="/dashboard">
+                  <Shield />
+                  Admin
+                </Link>
+              </Button>
+            )}
+            <UserButton afterSwitchSessionUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <Button asChild variant={"outline"} className="rounded-full">
+              <Link href="/sign-in">
+                <LogIn />
+                <span className="">Login</span>
+              </Link>
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </HeaderWrapper>
