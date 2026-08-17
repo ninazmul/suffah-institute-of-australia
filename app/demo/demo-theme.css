@@ -442,6 +442,11 @@ footer.footer {
   padding: 1.25rem;
 }
 
+.navbar--capsule a {
+  font-family: 'Poppins', sans-serif;
+  line-height: 2rem;
+}
+
 .header-links {
   display: flex;
 }
