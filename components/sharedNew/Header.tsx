@@ -10,7 +10,7 @@ import Donation from "./Donation";
 import { auth } from "@clerk/nextjs/server";
 import { getUserEmailById } from "@/lib/actions/user.actions";
 import { isAdmin } from "@/lib/actions/admin.actions";
-import HeaderAnimation from "./HeaderAnimation";
+import HeaderWrapper from "./HeaderWrapper";
 
 export default async function Header() {
   const { sessionClaims } = await auth();
@@ -20,7 +20,7 @@ export default async function Header() {
   const adminStatus = await isAdmin(email);
 
   return (
-    <header className={`${HeaderAnimation} header w-full text-white`}>
+    <HeaderWrapper>
       <div className="wrapper flex items-center justify-center">
         <Link href="/" className="flex items-center gap-2">
           <h1 className="brand-title font-normal text-white hidden md:flex">
@@ -35,7 +35,7 @@ export default async function Header() {
             </h3>
           </div>
         </Link>
-        
+
       </div>
 
       <div className="wrapper navbar--capsule flex items-center justify-between gap-2">
@@ -86,6 +86,6 @@ export default async function Header() {
           <Donation />
         </div>
       </div>
-    </header>
+    </HeaderWrapper>
   );
 }
