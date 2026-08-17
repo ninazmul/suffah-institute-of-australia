@@ -93,7 +93,7 @@ export default function DemoPage() {
         id="mission-vision"
         className="relative z-10 bg-white text-gray-800 rounded-t-[3rem] shadow-xl py-16 px-6 md:px-16 -mt-10"
       >
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="mission-vision-content">
           <div>
             <h2 className="text-3xl font-semibold mb-4 text-gray-900">
               Our Mission
