@@ -7,15 +7,11 @@ export default function HeaderWrapper({children}: {children: React.ReactNode}) {
     const [hasInitAnimation, setHasInitAnimation] = useState(false);
 
     useEffect(() => {
-        // setHasInitAnimation(true);
-
         const handleScroll = () => {
             if (window.scrollY > 50 && !hasInitAnimation) {
-                // document.querySelector('header')?.classList.add('init-animation');
                 setHasInitAnimation(true);
             } else {
                 setHasInitAnimation(false);
-                // document.querySelector('header')?.classList.contains('init-animation') && document.querySelector('header')?.classList.remove('init-animation');
             }
         };
         
