@@ -455,3 +455,20 @@ footer.footer {
   width: 6rem;
   height: 6rem;
 }
+
+.mission-vision-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mission-vision-content > div {
+    width: calc(50% - 1rem);
+    padding: 1rem;
+    border: 1px solid #085251;
+    border-radius: 0.5rem;
+    border-top-right-radius: 3rem;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
