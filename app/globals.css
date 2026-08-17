@@ -413,14 +413,3 @@ body {
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: transparent;
 }
-
-
-/* STYLE 2026 */
-header.header {
-  background-color: #085251 !important;
-}
-
-footer.footer {
-  background-color: #0c2021 !important;
-  padding: 2rem 0;
-}
