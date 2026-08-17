@@ -435,7 +435,7 @@ footer.footer {
   color: white;
 }
 
-.navbar--capsule.wrapper {
+.navbar--capsule {
     background: rgba(0,0,0,0.5);
     border-radius: 4rem;
     width: fit-content;
