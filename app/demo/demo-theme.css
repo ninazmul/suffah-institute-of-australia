@@ -104,8 +104,7 @@ body {
 }
 
 .filter-grey {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%)
-    hue-rotate(32deg) brightness(98%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%) hue-rotate(32deg) brightness(98%) contrast(92%);
 }
 
 /* ========================================== TAILWIND STYLES */
@@ -125,7 +124,7 @@ body {
   /* TYPOGRAPHY */
   /* 64 */
   .h1-bold {
-    @apply font-bold text-[28px] lg:text-[36px]  xl:text-[40px];
+    @apply font-bold text-[28px] lg:text-[36px] xl:text-[40px];
   }
 
   /* 40 */
@@ -248,7 +247,7 @@ body {
   }
 
   .select-item {
-    @apply py-3 cursor-pointer  focus:bg-primary-50;
+    @apply py-3 cursor-pointer focus:bg-primary-50;
   }
 
   .toggle-switch {
@@ -436,12 +435,13 @@ footer.footer {
 }
 
 .navbar--capsule {
-    background: rgba(0,0,0,0.5);
-    border-radius: 4rem;
-    width: fit-content;
-    padding: 0.5rem;
+  display: flex;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4rem;
+  width: fit-content;
+  padding: 1.25rem;
 }
 
 .header-links {
-    display: flex;
+  display: flex;
 }
