@@ -4,16 +4,18 @@ import { useEffect, useState } from 'react';
 
 export default function HeaderWrapper({children}: {children: React.ReactNode}) {
 
-    // const { hasInitAnimation, setHasInitAnimation } = useState(false);
+    const [hasInitAnimation, setHasInitAnimation] = useState(false);
 
     useEffect(() => {
         // setHasInitAnimation(true);
 
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                document.querySelector('header')?.classList.add('init-animation');
+            if (window.scrollY > 50 && !hasInitAnimation) {
+                // document.querySelector('header')?.classList.add('init-animation');
+                setHasInitAnimation(true);
             } else {
-                document.querySelector('header')?.classList.contains('init-animation') && document.querySelector('header')?.classList.remove('init-animation');
+                setHasInitAnimation(false);
+                // document.querySelector('header')?.classList.contains('init-animation') && document.querySelector('header')?.classList.remove('init-animation');
             }
         };
         
@@ -26,7 +28,7 @@ export default function HeaderWrapper({children}: {children: React.ReactNode}) {
         }
     }, []);
     return (
-        <header className="header w-full text-white">
+        <header className={`header w-full text-white ${hasInitAnimation ? 'init-animation' : ''}`}>
             {children}
         </header>
     );
