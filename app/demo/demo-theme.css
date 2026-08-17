@@ -445,3 +445,8 @@ footer.footer {
 .header-links {
   display: flex;
 }
+
+.brand-logo {
+  width: 6rem;
+  height: 6rem;
+}
