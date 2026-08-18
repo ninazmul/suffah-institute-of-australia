@@ -12,7 +12,7 @@ const NavItems = ({ onItemSelected }: NavItemsProps) => {
   const pathname = usePathname();
 
   return (
-    <ul className="lg:flex-between flex w-full flex-col items-start gap-4 lg:flex-row font-serif">
+    <ul className="lg:flex-between flex w-full flex-col items-start lg:flex-row gap-1">
       {headerLinks.map((link) => {
         const isActive = pathname === link.route;
 
