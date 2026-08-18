@@ -1,6 +1,6 @@
 import Footer from "@/components/sharedNew/Footer";
 import Header from "@/components/sharedNew/Header";
-import ScrollHeaderWrapper from "@/components/shared/ScrollHeaderWrapper";
+import ScrollHeaderWrapper from "@/components/sharedNew/ScrollHeaderWrapper";
 import { Toaster } from "react-hot-toast";
 
 import './demo-theme.css';
