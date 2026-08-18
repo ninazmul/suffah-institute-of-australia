@@ -430,13 +430,11 @@ footer.footer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: red;
-  color: white;
 }
 
 .navbar--capsule {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #085251;
   border-radius: 4rem;
   width: fit-content;
   padding: 0.5rem;
