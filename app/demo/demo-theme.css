@@ -501,6 +501,10 @@ main.main-container .wrapper>h2 {
   text-align: center;
 }
 
+.header-container {
+    background: #FBFBFD;
+}
+
 /* CONTACT US */
 section.section-links {
   margin-top: 1.5rem;
