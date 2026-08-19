@@ -502,7 +502,12 @@ main.main-container .wrapper>h2 {
 }
 
 .header-container {
-    background: #FBFBFD;
+  background: #FBFBFD;
+}
+
+/* HEADER */
+.header .wrapper {
+  padding: 0;
 }
 
 /* CONTACT US */
