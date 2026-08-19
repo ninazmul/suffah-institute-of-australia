@@ -78,23 +78,6 @@ export const ContactUs = () => {
           </p>
         )}
         <div className="flex flex-col md:flex-row gap-8">
-          <div>
-            <h3 className="font-semibold">Follow us on:</h3>
-            <div className="flex items-center gap-4 py-4">
-              <Link href={"https://www.facebook.com/SuffahOfAus"} target="_blank">
-                <ImFacebook className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-              </Link>
-              {/* <Link href={"/"} target="_blank">
-                <ImInstagram className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-              </Link>
-              <Link href={"/"} target="_blank">
-                <ImTwitter className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-              </Link>
-              <Link href={"/"} target="_blank">
-                <ImLinkedin className="size-10 bg-primary-500 p-2 rounded-md text-white hover:text-black shadow hover:bg-yellow-400 transition-colors" />
-              </Link> */}
-            </div>
-          </div>
           <div className="flex-1">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
