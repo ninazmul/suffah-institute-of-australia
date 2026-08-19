@@ -8,11 +8,16 @@ export default function HeaderWrapper({children}: {children: React.ReactNode}) {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50 && !hasInitAnimation) {
-                setHasInitAnimation(true);
-            } else {
-                setHasInitAnimation(false);
-            }
+            const isScrolled = window.scrollY > 100;
+            setHasInitAnimation((prev) => {
+                if (isScrolled && !prev) {
+                    return true;
+                }
+                if (!isScrolled && prev) {
+                    return false;
+                }
+                return prev;
+            });
         };
         
         window.addEventListener('scroll', handleScroll);
