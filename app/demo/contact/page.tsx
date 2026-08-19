@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export default async function ContactPage() {
   return (
-    <>
       <div>
         <section className="wrapper flex flex-col gap-4">
           <h2 className="h2-bold py-4">Contact Us</h2>
@@ -24,6 +23,5 @@ export default async function ContactPage() {
         </section>
 
       </div>
-    </>
   );
 }
