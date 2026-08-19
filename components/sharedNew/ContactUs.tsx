@@ -6,8 +6,6 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import Link from "next/link";
-import { ImFacebook } from "react-icons/im";
 import toast from "react-hot-toast";
 
 export const ContactUs = () => {
