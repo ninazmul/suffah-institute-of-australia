@@ -31,7 +31,7 @@ export default function ScrollHeaderWrapper({
     <div
       className={`header-container top-0 left-0 w-full transition-transform duration-300 z-[40] ${
         showHeader
-          ? "transform translate-y-0 shadow-black/20 shadow-lg"
+          ? "transform translate-y-0 shadow-black/20"
           : "transform -translate-y-full"
       }`}
     >
