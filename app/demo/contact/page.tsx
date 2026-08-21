@@ -16,8 +16,8 @@ export default function ContactPage() {
           />
         </div>
         <h2 className="h2-bold py-4">Contact Us</h2>
-        <ContactUs />
       </section>
+      <ContactUs />
       <section className="section-links">
         <p className="p-regular-20 md:p-regular-24 py-4">
           if you want to ask a question about the religion Islam please navigate

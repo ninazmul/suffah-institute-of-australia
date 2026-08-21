@@ -61,42 +61,44 @@ export default function ServicesPage() {
         Our Services
       </h2>
 
-      {/* Services */}
-      {services.map((service, index) => (
-        <div
-          key={service.title}
-          className={`flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 ${
-            index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+    </section>
+      {/* Services */ }
+  {
+    services.map((service, index) => (
+      <div
+        key={service.title}
+        className={`flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""
           }`}
-        >
-          {/* Text */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-4 text-gray-700">
-            <h3 className="text-2xl font-semibold text-primary">
-              {service.title}
-            </h3>
-            {service.content.map((para, i) => (
-              <p key={i} className="text-base md:text-lg leading-relaxed">
-                {para}
-              </p>
-            ))}
-          </div>
-
-          {/* Image */}
-          <div className="w-full lg:w-1/2 relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src={service.img}
-              alt={service.title}
-              fill
-              priority
-              className="object-cover hover:scale-105 transition-transform duration-500"
-            />
-          </div>
+      >
+        {/* Text */}
+        <div className="w-full lg:w-1/2 flex flex-col gap-4 text-gray-700">
+          <h3 className="text-2xl font-semibold text-primary">
+            {service.title}
+          </h3>
+          {service.content.map((para, i) => (
+            <p key={i} className="text-base md:text-lg leading-relaxed">
+              {para}
+            </p>
+          ))}
         </div>
-      ))}
 
-      {/* Learn about Islam */}
-      <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-8 lg:gap-12 border-t border-gray-200 py-12">
-        {/* <div className="w-full lg:w-1/2">
+        {/* Image */}
+        <div className="w-full lg:w-1/2 relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={service.img}
+            alt={service.title}
+            fill
+            priority
+            className="object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      </div>
+    ))
+  }
+
+  {/* Learn about Islam */ }
+  <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-8 lg:gap-12 border-t border-gray-200 py-12">
+    {/* <div className="w-full lg:w-1/2">
           <Image
             src="/assets/images/quranClass.jpeg"
             alt="Quran Class"
@@ -105,24 +107,23 @@ export default function ServicesPage() {
             className="rounded-lg w-full"
           />
         </div> */}
-        <div className="w-full flex flex-col gap-4 text-gray-700">
-          <h3 className="text-2xl font-semibold text-primary">
-            Learn about the Religion of Islam
-          </h3>
-          <p className="text-base md:text-lg leading-relaxed">
-            Join the{" "}
-            <strong>SIA Knowledge Program (Qur’an & Islamic Studies)</strong> to
-            explore Islamic teachings and gain authentic understanding. Click
-            below to learn more or book your session.
-          </p>
-          <Link
-            href="/bookings"
-            className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 w-fit"
-          >
-            Join Knowledge Program
-          </Link>
-        </div>
-      </div>
-    </section>
+    <div className="w-full flex flex-col gap-4 text-gray-700">
+      <h3 className="text-2xl font-semibold text-primary">
+        Learn about the Religion of Islam
+      </h3>
+      <p className="text-base md:text-lg leading-relaxed">
+        Join the{" "}
+        <strong>SIA Knowledge Program (Qur’an & Islamic Studies)</strong> to
+        explore Islamic teachings and gain authentic understanding. Click
+        below to learn more or book your session.
+      </p>
+      <Link
+        href="/bookings"
+        className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 w-fit"
+      >
+        Join Knowledge Program
+      </Link>
+    </div>
+  </div>
   );
 }
