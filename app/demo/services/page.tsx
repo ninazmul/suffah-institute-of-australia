@@ -53,11 +53,11 @@ export default function ServicesPage() {
   return (
     <section className="wrapper flex flex-col gap-10 py-10">
       <Image
-        src="/assets/images/banner-1.png"
+        src="/assets/images/banner-3.jpg"
         alt="SIA Purpose Background"
         fill
         priority
-        className="object-cover opacity-60"
+        className="banner-image object-cover opacity-60"
       />
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 py-4">
         Our Services
