@@ -14,7 +14,6 @@ export default function ContactPage() {
             priority
             className="object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-black/40" />
         </div>
         <h2 className="h2-bold py-4">Contact Us</h2>
         <ContactUs />
