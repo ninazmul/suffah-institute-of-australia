@@ -510,6 +510,12 @@ main.main-container .wrapper>h2 {
   padding: 0;
 }
 
+header {
+  background-image: url('/public/assets/images/banner-1.png');
+  background-size: cover;
+  background-position: center;
+}
+
 /* CONTACT US */
 section.section-links {
   margin-top: 1.5rem;
