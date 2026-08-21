@@ -417,7 +417,7 @@ body {
 /* STYLE 2026 */
 header.header {
   /* background-color: #085251 !important; */
-  z-index: 1000;
+  /* z-index: 1000; */
 }
 
 footer.footer {
