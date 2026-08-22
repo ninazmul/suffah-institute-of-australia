@@ -4,6 +4,7 @@ import { getAllAchievement } from "@/lib/actions/achievement.actions";
 import Image from "next/image";
 import { IAchievement } from "@/lib/database/models/achievement.model";
 import { useState, useEffect } from "react";
+import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 
 const Page = () => {
   const [achievements, setAchievements] = useState<IAchievement[]>([]);
@@ -34,7 +35,7 @@ const Page = () => {
 
   return (
     <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-      <h2 className="h2-bold text-center">Our Achievements</h2>
+      <BannerSecondary title="Our Achievements" img="/assets/images/banner-3.jpg" />
       <p className="p-regular-20 md:p-regular-24 text-center">
         Discover milestones and accomplishments that reflect our journey— from
         community events and celebrations to meaningful contributions.
