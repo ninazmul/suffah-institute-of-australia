@@ -485,6 +485,7 @@ main.main-container .wrapper>h2 {
 
 /* HEADER */
 .header .wrapper {
+  margin-top: 1rem;
   padding: 0;
 }
 
