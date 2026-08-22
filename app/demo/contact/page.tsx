@@ -1,6 +1,5 @@
 import { ContactUs } from "@/components/sharedNew/ContactUs";
 import Link from "next/link";
-import Image from "next/image";
 import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 
 export default function ContactPage() {
