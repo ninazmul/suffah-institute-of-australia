@@ -519,6 +519,10 @@ header {
   height: 6rem;
 }
 
+.navbar--capsule>button {
+  margin-left: 0.25rem;
+}
+
 /* CONTACT US */
 section.section-links {
   margin-top: 1.5rem;
@@ -550,7 +554,7 @@ section.banner-container {
   position: relative;
   width: 100%;
   top: 0;
-  height: 300px;
+  height: 270px;
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
@@ -559,7 +563,7 @@ section.banner-container {
 
 section.banner-container h2 {
   position: absolute;
-  bottom: 4rem;
+  bottom: 1rem;
   text-transform: uppercase;
-  color: white;
+  color: var(--sidebar-primary-foreground);
 }
