@@ -1,22 +1,12 @@
 import { ContactUs } from "@/components/sharedNew/ContactUs";
 import Link from "next/link";
 import Image from "next/image";
+import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 
 export default function ContactPage() {
   return (
     <div>
-      <section className="wrapper flex flex-col gap-4">
-        <div className="absolute inset-0">
-          <Image
-            src="/assets/images/banner-2.png"
-            alt="SIA Purpose Background"
-            fill
-            priority
-            className="object-cover opacity-60"
-          />
-        </div>
-        <h2 className="h2-bold py-4">Contact Us</h2>
-      </section>
+      <BannerSecondary title="Contact Us" img="/assets/images/banner-2.png" />
       <ContactUs />
       <section className="section-links">
         <p className="p-regular-20 md:p-regular-24 py-4">
