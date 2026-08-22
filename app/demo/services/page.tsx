@@ -55,6 +55,7 @@ export default function ServicesPage() {
     <div>
       <BannerSecondary title="Our Services" img="/assets/images/banner-3.jpg" />
       {/* Services */}
+      <div className="services-container wrapper">
       {services.map((service, index) => (
         <div
           key={service.title}
@@ -85,6 +86,7 @@ export default function ServicesPage() {
           </div>
         </div>
       ))}
+      </div>
 
       {/* Learn about Islam */}
       <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-8 lg:gap-12 border-t border-gray-200 py-12">
