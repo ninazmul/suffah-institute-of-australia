@@ -1,6 +1,7 @@
 import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
 import Search from "@/components/shared/Search";
+import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 import { getAllEvents } from "@/lib/actions/event.actions";
 import { SearchParamProps } from "@/types";
 
@@ -20,6 +21,7 @@ const page = async ({ searchParams }: SearchParamProps) => {
 
   return (
     <>
+      <BannerSecondary title="Our Events" img="/assets/images/banner-3.jpg" />
       <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <h2 className="h2-bold">Explore All Events</h2>
         <p className="p-regular-20 md:p-regular-24">

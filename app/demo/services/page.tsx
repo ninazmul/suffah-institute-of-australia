@@ -1,3 +1,4 @@
+import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -52,18 +53,7 @@ export default function ServicesPage() {
 
   return (
     <div>
-
-      <section className="banner-container">
-        <Image
-          src="/assets/images/banner-3.jpg"
-          alt="SIA Secondary Background"
-          className="banner-image object-cover"
-        />
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 py-4">
-          Our Services
-        </h2>
-
-      </section>
+      <BannerSecondary title="Our Services" img="/assets/images/banner-3.jpg" />
       {/* Services */}
       {services.map((service, index) => (
         <div

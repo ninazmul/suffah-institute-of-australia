@@ -85,6 +85,7 @@ export default function AboutPage() {
   return (
     <>
       {/* About Section */}
+      <BannerSecondary title="About Us" img="/assets/images/banner-3.jpg" />
       <section className="py-10 md:py-16 bg-gray-50">
         <div className="wrapper max-w-5xl mx-auto text-center space-y-6">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -121,7 +122,6 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="py-10 md:py-16 bg-gray-50">
-        <BannerSecondary title="Meet the Team" img="/assets/images/banner-3.jpg" />
         <div className="wrapper max-w-6xl mx-auto">
 
           <div className="grid gap-8 grid-cols-1">
