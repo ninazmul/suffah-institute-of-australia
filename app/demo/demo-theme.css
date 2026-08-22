@@ -432,23 +432,7 @@ footer.footer {
   min-height: 100vh;
 }
 
-.mission-vision-content {
-  display: flex;
-  justify-content: space-between;
-}
 
-.mission-vision-content>div {
-  width: calc(50% - 1rem);
-  padding: 1rem;
-  border: 1px solid #085251;
-  border-radius: 0.5rem;
-  border-top-right-radius: 3rem;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-}
 
 .cta-tiles {
   position: relative;
@@ -567,4 +551,34 @@ section.banner-container h2 {
   bottom: 1rem;
   text-transform: uppercase;
   color: #ffffff;
+}
+
+/* HOME PAGE */
+.mission-vision-content {
+  display: flex;
+  background: #76dee1;
+  padding: 1rem;
+  z-index: 0;
+  position: relative;
+  justify-content: space-between;
+}
+
+.mission-vision-content>div {
+  width: calc(50% - 1rem);
+  padding: 1rem 1.5rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.mission-vision-content span.divider {
+  background-color: #ffffff;
+  width: 4px;
+  min-height: 6%;
+  max-height: 5%;
+  position: relative;
+  z-index: 1;
+  border-radius: 0.5rem;
 }

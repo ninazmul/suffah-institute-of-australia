@@ -92,10 +92,10 @@ export default function DemoPage() {
       <div id="mission-vision" className="relative z-10 bg-white text-gray-800 shadow-xl py-16 px-6 md:px-16">
         <div className="mission-vision-content wrapper">
           <div>
-            <h2 className="text-3xl font-semibold mb-4 text-gray-900">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-300">
               Our Mission
             </h2>
-            <p className="text-lg text-gray-700 text-justify">
+            <p className="text-lg text-gray-200">
               To advance health, education, religion, and social welfare by
               providing essential services and support to underserved
               communities in Australia and overseas. We are committed to
@@ -104,12 +104,12 @@ export default function DemoPage() {
               life for those in need.
             </p>
           </div>
-
+          <span className="divider"></span>
           <div>
-            <h2 className="text-3xl font-semibold mb-4 text-gray-900">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-300">
               Our Vision
             </h2>
-            <p className="text-lg text-gray-700 text-justify">
+            <p className="text-lg text-gray-200">
               To create a world where every individual has access to quality
               healthcare, education, and social support, fostering a community
               of mutual respect and understanding. We envision a future where
