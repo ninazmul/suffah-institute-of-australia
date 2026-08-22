@@ -38,8 +38,8 @@ export default async function Header() {
 
       </div>
 
-      <div className="wrapper navbar-wrapper flex items-center justify-between gap-2">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="wrapper flex items-center justify-between gap-2">
+        <Link href="/" className="navbar-brand-wrapper flex items-center gap-2">
           <Image
             src="/assets/images/logo.png"
             width={100}

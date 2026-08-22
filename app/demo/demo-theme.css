@@ -432,36 +432,6 @@ footer.footer {
   min-height: 100vh;
 }
 
-.navbar--capsule {
-  display: flex;
-  background-color: #085251;
-  border-radius: 4rem;
-  width: fit-content;
-  padding: 0.5rem;
-}
-
-.navbar--capsule a {
-  font-family: 'Poppins', sans-serif;
-  line-height: 2rem;
-}
-
-.header-links {
-  display: flex;
-}
-
-.navbar-wrapper {
-  position: relative;
-  height: 4rem;
-  width: 4rem;
-}
-
-.navbar-wrapper .brand-logo {
-  position: absolute;
-  bottom: -0.25rem;
-  width: 6rem;
-  height: 6rem;
-}
-
 .mission-vision-content {
   display: flex;
   justify-content: space-between;
@@ -522,6 +492,32 @@ header {
   /* background-image: url('/public/assets/images/banner-1.png');
   background-size: cover;
   background-position: center; */
+}
+
+.navbar--capsule {
+  display: flex;
+  background-color: #085251;
+  border-radius: 4rem;
+  width: fit-content;
+  padding: 0.5rem;
+}
+
+.navbar--capsule a {
+  font-family: 'Poppins', sans-serif;
+  line-height: 2rem;
+}
+
+.navbar-brand-wrapper {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+}
+
+.navbar-brand-wrapper .brand-logo {
+  position: absolute;
+  bottom: -0.25rem;
+  width: 6rem;
+  height: 6rem;
 }
 
 /* CONTACT US */
