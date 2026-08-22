@@ -565,5 +565,5 @@ section.banner-container h2 {
   position: absolute;
   bottom: 1rem;
   text-transform: uppercase;
-  color: var(--sidebar-primary-foreground);
+  color: #ffffff;
 }
