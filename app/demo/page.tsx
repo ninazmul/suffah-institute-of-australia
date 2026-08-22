@@ -89,7 +89,7 @@ export default function DemoPage() {
       </div>
 
       {/* Mission & Vision Section */}
-      <div id="mission-vision" className="relative z-10 bg-white text-gray-800 py-16 px-6 md:px-16">
+      <div id="mission-vision" className="mission-vision relative z-10 text-gray-800 py-16 px-6 md:px-16">
         <div className="mission-vision-content wrapper">
           <div>
             <h2 className="text-3xl font-semibold mb-4 text-white">
@@ -124,114 +124,116 @@ export default function DemoPage() {
 
       {/* Call-to-Action Tiles */}
       <div className="cta-tiles">
-        <div className="donation-blurb">
-          <h2 className="text-3xl font-semibold mb-4 text-gray-300">
-            Make a Difference Today
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Link
-            href="/contact"
-            className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
-          >
-            <span>I want to be part of SIA’s Journey!</span>
-            <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
-              Get in touch →
-            </div>
-          </Link>
-
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <button className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
-                <span>I will donate</span>
-                <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
-                  Make an impact →
-                </div>
-              </button>
-            </SheetTrigger>
-
-            <SheetContent className="bg-white">
-              <SheetHeader>
-                <SheetTitle className="text-xl font-bold text-gray-800">
-                  Support Us with a Donation
-                </SheetTitle>
-                <SheetDescription className="text-gray-600">
-                  Your contributions help us continue our mission to make a
-                  positive impact. You can donate via bank transfer or Stripe.
-                </SheetDescription>
-              </SheetHeader>
-
-              {/* Bank Info */}
-              <div className="py-5 border-t border-gray-300 mt-3">
-                <h1 className="text-lg font-semibold text-gray-800 mb-2">
-                  Bank Account Information
-                </h1>
-                <div className="text-gray-700 space-y-1">
-                  <p>
-                    Account Name:{" "}
-                    <span className="font-semibold">
-                      Suffah Institute of Australia Inc.
-                    </span>
-                  </p>
-                  <p>
-                    BSB: <span className="font-semibold">082-356</span>
-                  </p>
-                  <p>
-                    Account: <span className="font-semibold">43 764 2145</span>
-                  </p>
-                </div>
-              </div>
-
-              {/* Stripe Donation */}
-              <div className="py-5 border-t border-gray-300 mt-3">
-                <h1 className="text-lg font-semibold text-gray-800 mb-2 text-center">
-                  Or Donate via Stripe
-                </h1>
-                <form
-                  onSubmit={onCheckout}
-                  className="flex flex-col justify-center w-full space-y-4"
-                >
-                  <label
-                    htmlFor="amount"
-                    className="text-sm font-medium text-gray-700"
-                  >
-                    Donation Amount (AUD)
-                  </label>
-                  <input
-                    type="number"
-                    id="amount"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    placeholder="Enter amount"
-                    className="p-2 border border-gray-300 rounded-md focus:ring focus:ring-yellow-500"
-                    required
-                    disabled={isLoading}
-                  />
-                  <Button
-                    type="submit"
-                    className={`bg-[#003f3e] text-white px-4 py-2 rounded-md hover:bg-[#00504f] ${isLoading && "opacity-50 cursor-not-allowed"
-                      }`}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Processing..." : "Donate via Stripe"}
-                  </Button>
-                </form>
-              </div>
-            </SheetContent>
-          </Sheet>
-
-          <div className="flex flex-col text-center justify-center items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
-            <span>Volunteer with Us</span>
-            <div className="mt-2 text-sm opacity-80">Coming soon</div>
+        <div className="wrapper">
+          <div className="donation-blurb">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-300">
+              Make a Difference Today
+            </h2>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Link
+              href="/contact"
+              className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+            >
+              <span>I want to be part of SIA’s Journey!</span>
+              <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
+                Get in touch →
+              </div>
+            </Link>
 
-          <Link
-            href={"/achievements"}
-            className="flex flex-col justify-center text-center items-center bg-gradient-to-r from-pink-400 to-pink-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
-          >
-            <span>Read Our Stories</span>
-            <div className="mt-2 text-sm opacity-80">Inspiration & impact</div>
-          </Link>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <button className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                  <span>I will donate</span>
+                  <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
+                    Make an impact →
+                  </div>
+                </button>
+              </SheetTrigger>
+
+              <SheetContent className="bg-white">
+                <SheetHeader>
+                  <SheetTitle className="text-xl font-bold text-gray-800">
+                    Support Us with a Donation
+                  </SheetTitle>
+                  <SheetDescription className="text-gray-600">
+                    Your contributions help us continue our mission to make a
+                    positive impact. You can donate via bank transfer or Stripe.
+                  </SheetDescription>
+                </SheetHeader>
+
+                {/* Bank Info */}
+                <div className="py-5 border-t border-gray-300 mt-3">
+                  <h1 className="text-lg font-semibold text-gray-800 mb-2">
+                    Bank Account Information
+                  </h1>
+                  <div className="text-gray-700 space-y-1">
+                    <p>
+                      Account Name:{" "}
+                      <span className="font-semibold">
+                        Suffah Institute of Australia Inc.
+                      </span>
+                    </p>
+                    <p>
+                      BSB: <span className="font-semibold">082-356</span>
+                    </p>
+                    <p>
+                      Account: <span className="font-semibold">43 764 2145</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stripe Donation */}
+                <div className="py-5 border-t border-gray-300 mt-3">
+                  <h1 className="text-lg font-semibold text-gray-800 mb-2 text-center">
+                    Or Donate via Stripe
+                  </h1>
+                  <form
+                    onSubmit={onCheckout}
+                    className="flex flex-col justify-center w-full space-y-4"
+                  >
+                    <label
+                      htmlFor="amount"
+                      className="text-sm font-medium text-gray-700"
+                    >
+                      Donation Amount (AUD)
+                    </label>
+                    <input
+                      type="number"
+                      id="amount"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                      placeholder="Enter amount"
+                      className="p-2 border border-gray-300 rounded-md focus:ring focus:ring-yellow-500"
+                      required
+                      disabled={isLoading}
+                    />
+                    <Button
+                      type="submit"
+                      className={`bg-[#003f3e] text-white px-4 py-2 rounded-md hover:bg-[#00504f] ${isLoading && "opacity-50 cursor-not-allowed"
+                        }`}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Processing..." : "Donate via Stripe"}
+                    </Button>
+                  </form>
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            <div className="flex flex-col text-center justify-center items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
+              <span>Volunteer with Us</span>
+              <div className="mt-2 text-sm opacity-80">Coming soon</div>
+            </div>
+
+            <Link
+              href={"/achievements"}
+              className="flex flex-col justify-center text-center items-center bg-gradient-to-r from-pink-400 to-pink-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+            >
+              <span>Read Our Stories</span>
+              <div className="mt-2 text-sm opacity-80">Inspiration & impact</div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

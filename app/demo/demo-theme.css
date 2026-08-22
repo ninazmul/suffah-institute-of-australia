@@ -548,6 +548,10 @@ section.banner-container h2 {
 }
 
 /* HOME PAGE */
+.mission-vision {
+  background-color: #FBFBFD;
+}
+
 .mission-vision-content {
   display: flex;
   background-color: #2f6a6d;
