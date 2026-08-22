@@ -434,12 +434,6 @@ footer.footer {
 
 
 
-.cta-tiles {
-  position: relative;
-  background-color: #085251;
-  height: 100%;
-  padding: 3rem 0;
-}
 
 
 nav.nav-container ul>li {
@@ -550,13 +544,13 @@ section.banner-container h2 {
   position: absolute;
   bottom: 1rem;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #FBFBFD;
 }
 
 /* HOME PAGE */
 .mission-vision-content {
   display: flex;
-  background: #76dee1;
+  background-color: #2f6a6d;
   padding: 1rem;
   z-index: 0;
   position: relative;
@@ -574,11 +568,19 @@ section.banner-container h2 {
 }
 
 .mission-vision-content span.divider {
-  background-color: #ffffff;
+  background-color: #FBFBFD;
   width: 4px;
   min-height: 6%;
   max-height: 5%;
   position: relative;
   z-index: 1;
   border-radius: 0.5rem;
+}
+
+/* HOME PAGE > CTA */
+.cta-tiles {
+  position: relative;
+  background-color: #FBFBFD;
+  height: 100%;
+  padding: 3rem 0;
 }
