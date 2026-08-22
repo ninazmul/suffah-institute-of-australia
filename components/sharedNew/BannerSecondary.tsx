@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function BannerSecondary(props: { title: string, img: string }) {
+export default function kBannerSecondary(props: { title: string, img: string }) {
     return (
         <section className="banner-container">
             <Image src={props.img} alt="Secondary Background" className="banner-image object-cover"/>

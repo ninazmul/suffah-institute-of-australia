@@ -5,7 +5,7 @@ import BannerSecondary from "@/components/sharedNew/BannerSecondary";
 export default function ContactPage() {
   return (
     <div>
-      <BannerSecondary title="Contact Us" img="/assets/images/banner-2.png" />
+      <BannerSecondary title="Contact Us" img="/assets/images/banner-3.jpg" />
       <ContactUs />
       <section className="section-links">
         <p className="p-regular-20 md:p-regular-24 py-4">
