@@ -134,7 +134,7 @@ export default function DemoPage() {
             <div className="cta-card">
               <Link
                 href="/contact"
-                className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+                className=""
               >
                 <span>I want to be part of SIA’s Journey!</span>
                 <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
@@ -145,7 +145,7 @@ export default function DemoPage() {
             <div className="cta-card">
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <button className="group flex flex-col text-center justify-center items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                  <button className="">
                     <span>I will donate</span>
                     <div className="mt-2 text-sm opacity-80 group-hover:opacity-100">
                       Make an impact →
@@ -224,7 +224,7 @@ export default function DemoPage() {
               </Sheet>
             </div>
             <div className="cta-card">
-              <div className="flex flex-col text-center justify-center items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all">
+              <div className="">
                 <span>Volunteer with Us</span>
                 <div className="mt-2 text-sm opacity-80">Coming soon</div>
               </div>
@@ -232,7 +232,7 @@ export default function DemoPage() {
             <div className="cta-card">
               <Link
                 href={"/achievements"}
-                className="flex flex-col justify-center text-center items-center bg-gradient-to-r from-pink-400 to-pink-500 text-gray-900 font-semibold text-xl py-10 rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all"
+                className=""
               >
                 <span>Read Our Stories</span>
                 <div className="mt-2 text-sm opacity-80">Inspiration & impact</div>
