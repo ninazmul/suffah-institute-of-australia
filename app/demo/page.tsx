@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useEffect, useState } from "react";
+import { ImBook, ImUserPlus, ImCoinDollar } from "react-icons/im";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -132,7 +133,7 @@ export default function DemoPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="cta-card">
-              <div><i className="fa-solid fa-person-circle-plus"></i></div>
+              <div><ImUserPlus className="h-4 w-4" /></div>
               <Link
                 href="/contact"
                 className=""
@@ -144,7 +145,7 @@ export default function DemoPage() {
               </Link>
             </div>
             <div className="cta-card">
-              <div><i className="fa-solid fa-hand-holding-dollar"></i></div>
+              <div><ImCoinDollar className="h-4 w-4" /></div>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                   <button className="">
@@ -226,14 +227,14 @@ export default function DemoPage() {
               </Sheet>
             </div>
             <div className="cta-card">
-              <div><i className="fa-solid fa-handshake-angle"></i></div>
+              <div><ImUserPlus className="h-4 w-4" /></div>
               <div className="">
                 <span>Volunteer with Us</span>
                 <div className="mt-2 text-sm opacity-80">Coming soon</div>
               </div>
             </div>
             <div className="cta-card">
-              <div><i className="fa-solid fa-book"></i></div>
+              <div><ImBook className="h-4 w-4" /></div>
               <Link
                 href={"/achievements"}
                 className=""
