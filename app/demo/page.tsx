@@ -132,6 +132,7 @@ export default function DemoPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="cta-card">
+              <div><i className="fa-solid fa-person-circle-plus"></i></div>
               <Link
                 href="/contact"
                 className=""
@@ -143,6 +144,7 @@ export default function DemoPage() {
               </Link>
             </div>
             <div className="cta-card">
+              <div><i className="fa-solid fa-hand-holding-dollar"></i></div>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
                   <button className="">
@@ -224,12 +226,14 @@ export default function DemoPage() {
               </Sheet>
             </div>
             <div className="cta-card">
+              <div><i className="fa-solid fa-handshake-angle"></i></div>
               <div className="">
                 <span>Volunteer with Us</span>
                 <div className="mt-2 text-sm opacity-80">Coming soon</div>
               </div>
             </div>
             <div className="cta-card">
+              <div><i className="fa-solid fa-book"></i></div>
               <Link
                 href={"/achievements"}
                 className=""
