@@ -595,3 +595,7 @@ section.banner-container h2 {
   text-align: center;
   font-weight: 900;
 }
+
+.cta-card * {
+  color: black;
+}
