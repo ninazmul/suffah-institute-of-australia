@@ -586,16 +586,70 @@ section.banner-container h2 {
   position: relative;
   background-color: #FBFBFD;
   height: 100%;
-  padding: 3rem 0;
+  padding: 0 3rem 3rem;
 }
 
 .donation-blurb>h2 {
   font-family: 'Poppins', sans-serif;
-  color: #bb835a;
-  text-align: center;
+  font-size: 2.5rem;
   font-weight: 900;
+  color: #6F4E37;
+  text-align: center;
 }
 
 .cta-card * {
   color: black;
+}
+
+.cta-card {
+  background-color: #F5DEB3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: #967969;
+  position: relative;
+}
+
+.cta-card:hover {
+  background-color: #865c3d;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.cta-card>* {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-card a *,
+.cta-card button *,
+.cta-card div * {
+  width: 100%;
+  color: #EADDCA;
+}
+
+.cta-card svg {
+  height: 3em;
+  width: 3em;
+}
+
+
+.cta-card::after {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  background: #FBFBFD;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 25%;
 }
