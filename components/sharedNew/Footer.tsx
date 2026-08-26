@@ -75,7 +75,6 @@ const Footer = () => {
                     target="_blank"
                     className="hover:underline flex items-center gap-2"
                   >
-                    <ImLinkedin className="h-4 w-4" />
                     <ImLinkedin2 className="h-4 w-4" />
                     LinkedIn
                   </Link>
