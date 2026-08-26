@@ -70,23 +70,25 @@ export default function DemoPage() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-24 md:py-32">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Strengthen Society Through Generosity
-        </h1>
-        <p className="max-w-3xl text-lg md:text-xl text-gray-200 mb-10">
-          Together, we can empower communities and transform lives through
-          compassion, service, and shared humanity.
-        </p>
-        <Button
-          onClick={() =>
-            document
-              .getElementById("mission-vision")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="mt-6 bg-white/20 backdrop-blur-md text-white border border-white/40 px-6 py-3 rounded-full text-sm md:text-base font-medium hover:bg-white/30 transition-all"
-        >
-          Learn More ↓
-        </Button>
+        <div className="hero-content">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Strengthen Society Through Generosity
+          </h1>
+          <p className="max-w-3xl text-lg md:text-xl text-gray-200 mb-10">
+            Together, we can empower communities and transform lives through
+            compassion, service, and shared humanity.
+          </p>
+          <Button
+            onClick={() =>
+              document
+                .getElementById("mission-vision")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="mt-6 bg-white/20 backdrop-blur-md text-white border border-white/40 px-6 py-3 rounded-full text-sm md:text-base font-medium hover:bg-white/30 transition-all"
+          >
+            Learn More ↓
+          </Button>
+        </div>
       </div>
 
       {/* Mission & Vision Section */}
