@@ -66,7 +66,7 @@ const Footer = () => {
                     className="hover:underline flex items-center gap-2"
                   >
                     <ImFacebook className="h-4 w-4" />
-                    Facebook page
+                    Facebook
                   </Link>
                 </li>
                 <li>
