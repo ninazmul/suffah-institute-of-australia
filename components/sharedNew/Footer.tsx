@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImFacebook } from "react-icons/im";
-import { FaLinkedin } from "react-icons/fa";
+import { ImFacebook, ImLinkedin, ImLinkedin2 } from "react-icons/im";
 
 const Footer = () => {
   return (
@@ -66,7 +65,8 @@ const Footer = () => {
                     target="_blank"
                     className="hover:underline flex items-center gap-2"
                   >
-                    <FaLinkedin className="h-4 w-4" />
+                    <ImLinkedin className="h-4 w-4" />
+                    <ImLinkedin2 className="h-4 w-4" />
                     LinkedIn
                   </Link>
                 </li>
