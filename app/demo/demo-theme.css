@@ -680,3 +680,17 @@ section.banner-container h2 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* SERVICES */
+.service-content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.service-content h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
