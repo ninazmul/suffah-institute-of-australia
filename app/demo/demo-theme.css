@@ -664,3 +664,22 @@ section.banner-container h2 {
   right: -10px;
   border-radius: 25%;
 }
+
+.footer-logo {
+    background: pink;
+    width: 35%;
+}
+
+.footer-links {
+    background: orange;
+    width: 65%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-wrapper {
+    background: green;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

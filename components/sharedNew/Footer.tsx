@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="footer footer-bg text-white dark:text-green-200 py-8">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-6 items-center">
-          <div>
+        <div className="footer-wrapper">
+          <div className="footer-logo">
             <Link href="/" className="flex flex-col items-center gap-1">
               <Image
                 src={"/assets/images/logo.png"}
@@ -22,24 +22,34 @@ const Footer = () => {
               </h1>
             </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div className="footer-links">
             {/* Organization Links */}
             <div>
-              <h4 className="font-semibold mb-4 text-lg">Organization</h4>
+              <h4 className="font-semibold mb-4 text-lg">Links</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="hover:underline">
-                    Home
-                  </Link>
-                </li>
                 <li>
                   <Link href="/events" className="hover:underline">
                     Events
                   </Link>
                 </li>
                 <li>
+                  <Link href="/services" className="hover:underline">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/achievements" className="hover:underline">
+                    Achievements
+                  </Link>
+                </li>
+                <li>
                   <Link href="/about" className="hover:underline">
                     About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:underline">
+                    Contact Us
                   </Link>
                 </li>
               </ul>
@@ -70,74 +80,18 @@ const Footer = () => {
                     LinkedIn
                   </Link>
                 </li>
-                {/* <li>
-                  <Link
-                    href="https://chat.whatsapp.com/D2Vieg8QIrLFuk1pOzB9wo"
-                    target="_blank"
-                    className="hover:underline flex items-center gap-2"
-                  >
-                    <ImWhatsapp className="h-4 w-4" />
-                    WhatsApp Group
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.youtube.com/@sIAmuslim"
-                    target="_blank"
-                    className="hover:underline flex items-center gap-2"
-                  >
-                    <ImYoutube className="h-4 w-4" />
-                    YouTube
-                  </Link>
-                </li> */}
               </ul>
-              
             </div>
-
-            {/* Legal Links */}
-            {/* <div>
-              <h4 className="font-semibold mb-4 text-lg">Legal</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/https://www.fairtrading.nsw.gov.au/associations-and-co-operatives/associations"
-                    target="_blank"
-                    className="hover:underline"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/https://www.fairtrading.nsw.gov.au/associations-and-co-operatives/associations"
-                    target="_blank"
-                    className="hover:underline"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-              </ul>
-            </div> */}
           </div>
         </div>
         <hr className="my-6 border-t border-white" />
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
+        <div className="flex flex-col items-center justify-center w-full">
           <p className="text-xs">
             Copyright © {new Date().getFullYear()} {" "}
             <Link href="/" className="hover:underline">
               Suffah Institute of Australia
             </Link>{" "}
             | ABN 90667219580 - All rights reserved
-          </p>
-          <p className="text-xs flex items-center gap-2">
-            Developed by{" "}
-            <Link
-              href="https://www.artistycode.studio"
-              target="_blank"
-              className="underline hover:text-green-300"
-            >
-              ArtistyCode Studio
-            </Link>
           </p>
         </div>
       </div>
