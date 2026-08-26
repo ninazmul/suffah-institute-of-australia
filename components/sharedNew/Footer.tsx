@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ImFacebook, ImLinkedin, ImLinkedin2 } from "react-icons/im";
+import { ImFacebook, ImLinkedin2 } from "react-icons/im";
 
 const Footer = () => {
   return (
