@@ -60,11 +60,11 @@ export default function ServicesPage() {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""
+              className={`service-content flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12 ${index % 2 !== 0 ? "lg:flex-row-reverse" : ""
                 }`}
             >
               {/* Text */}
-              <div className="w-full lg:w-1/2 flex flex-col gap-4 text-gray-700">
+              <div className="service-content-text w-full lg:w-1/2 flex flex-col gap-4 text-gray-700">
                 <h3 className="text-2xl font-semibold text-primary">
                   {service.title}
                 </h3>
@@ -76,7 +76,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Image */}
-              <div className="w-full lg:w-1/2 relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
+              <div className="service-content-image w-full lg:w-1/2 relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
                 <Image
                   src={service.img}
                   alt={service.title}
