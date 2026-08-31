@@ -26,14 +26,6 @@ export default async function Header() {
           <h1 className="brand-title font-normal text-white hidden md:flex">
             Suffah Institute of Australia
           </h1>
-          <div className="flex md:hidden flex-col items-start justify-center">
-            <h1 className="text-xl font-serif font-nrmal text-white">
-              Suffah Institute
-            </h1>
-            <h3 className="font-serif font-semibold text-white text-xs">
-              of Australia
-            </h3>
-          </div>
         </Link>
 
       </div>
