@@ -667,12 +667,31 @@ section.banner-container h2 {
 
 .footer-logo {
   width: 35%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .footer-links {
   width: 65%;
   display: flex;
   justify-content: space-evenly;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1.5rem;
+    justify-content: center;
+
+    &>div {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    justify-content: space-evenly;
+  }
 }
 
 .footer-wrapper {
@@ -744,8 +763,7 @@ section.banner-container h2 {
   object-position: top;
 }
 
-.card-details {
-}
+.card-details {}
 
 .card-header {
   text-align: center;
