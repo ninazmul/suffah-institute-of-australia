@@ -126,7 +126,9 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-10 md:py-16">
         <div className="wrapper max-w-6xl mx-auto">
-
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Our Team
+          </h1>
           <div className="grid gap-8 grid-cols-1">
             {teamMembers.map((member, idx) => (
               <div
