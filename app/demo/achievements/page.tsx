@@ -82,7 +82,7 @@ const Page = () => {
                     </div>
                   )}
                   <div className="card-details">
-                    <div className="mb-2">
+                    <div className="card-header">
                       <h3 className="text-lg font-bold">{a.title}</h3>
                       <p className="text-sm text-muted-foreground font-semibold">
                         {a.category}

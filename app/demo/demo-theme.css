@@ -697,51 +697,59 @@ section.banner-container h2 {
 
 /* ACHIEVEMENTS */
 .achievements-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .achievements-tabs button {
-    width: fit-content;
+  width: fit-content;
 }
 
 .achievements-tabs button:not(:last-child) {
-    margin-right: 1rem;
+  margin-right: 1rem;
+}
+
+.achievements-content {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .achievements-card {
-       background: aqua;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 2rem;
-    border-radius: 2rem;
-    width: calc(50% - 2rem);
-    margin-bottom: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  background: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: calc(50% - 2rem);
+  margin: 1rem;
 }
 
 .card-image {
-        background: aqua;
-    width: 100%;
-    /* position: relative; */
-    display: flex;
-    justify-content: center;
+  background: aqua;
+  width: 100%;
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
 }
 
 .card-image img {
-        background: green;
-    position: relative !important;
-    width: 150px !important;
-    height: 150px !important;
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: top;
+  background: green;
+  position: relative !important;
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .card-details {
-    background: yellow;
+  background: yellow;
+}
+
+.card-header {
+  text-align: center;
 }
