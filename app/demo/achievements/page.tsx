@@ -42,9 +42,9 @@ const Page = () => {
           community events and celebrations to meaningful contributions.
         </p>
 
-        <div className="flex flex-col lg:flex-row gap-6 w-full">
+        <div className="achievements-content flex flex-col">
           {/* Custom Vertical Tabs */}
-          <div className="flex flex-col md:flex-row lg:flex-col gap-2">
+          <div className="achievements-tabs flex flex-col md:flex-row lg:flex-col gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -61,7 +61,7 @@ const Page = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="flex-1">
+          <div className="achievements-content flex-1">
             <div className="grid grid-cols-1 gap-4 mt-2">
               {achievements
                 .filter((a) =>
@@ -70,10 +70,10 @@ const Page = () => {
                 .map((a, idx) => (
                   <div
                     key={idx}
-                    className="rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row bg-white"
+                    className="achievements-card rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row bg-white"
                   >
                     {a.image && (
-                      <div className="relative md:w-1/3 lg:w-1/4 min-h-72 md:min-h-[200px] lg:min-h-[250px]">
+                      <div className="card-image relative md:w-1/3 lg:w-1/4 min-h-72 md:min-h-[200px] lg:min-h-[250px]">
                         <Image
                           src={a.image}
                           alt={a.title}
@@ -82,7 +82,7 @@ const Page = () => {
                         />
                       </div>
                     )}
-                    <div className="p-4 flex flex-col flex-1">
+                    <div className="card-details p-4 flex flex-col flex-1">
                       <div className="mb-2">
                         <h3 className="text-lg font-bold">{a.title}</h3>
                         <p className="text-sm text-muted-foreground font-semibold">
