@@ -465,6 +465,10 @@ main.main-container .wrapper>h2 {
 .header .wrapper {
   margin-top: 1rem;
   padding: 0;
+
+  @media (max-width: 500px) {
+    margin-top: 0.5rem;
+  }
 }
 
 header {
@@ -479,6 +483,10 @@ header {
   border-radius: 4rem;
   width: fit-content;
   padding: 0.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: row-reverse;
+  }
 }
 
 .navbar--capsule a {
@@ -500,6 +508,18 @@ header {
 
 .navbar--capsule>button {
   margin-left: 0.25rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+}
+
+.navbar--capsule>div {
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* CONTACT US */
