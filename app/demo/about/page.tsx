@@ -91,32 +91,35 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Who We Are
           </h1>
-          <p className="text-gray-600 leading-relaxed">
-            The Suffah Institute of Australia (SIA) is a not-for-profit,
-            ACNC-registered charity organisation based in New South Wales.
-            Founded with a deep commitment to compassion and service, SIA is
-            dedicated to improving the lives of vulnerable individuals through
-            education, healthcare, and community support—both in Australia and
-            overseas. In Australia, we focus on assisting individuals facing
-            difficult circumstances, such as those at risk of homelessness, the
-            unemployed, and victims of natural disasters or personal hardship.
-            We also actively engage with culturally and linguistically diverse
-            (CALD) communities, promoting inclusivity, mutual understanding, and
-            social cohesion through various outreach and support programs.
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            Globally, our mission extends to helping disadvantaged populations
-            in underserved regions. We offer scholarships to students who cannot
-            afford an education and fund medical aid—including life-changing eye
-            treatments—for those who lack access to basic healthcare.
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            At SIA, we believe that every individual deserves the opportunity to
-            live with dignity, hope, and purpose. Our programs are
-            community-driven, sustainable, and focused on long-term impact. With
-            your support, we continue to build pathways that uplift lives,
-            foster resilience, and empower communities across borders.
-          </p>
+          <div className="about-content">
+
+            <p className="text-gray-600 leading-relaxed">
+              The Suffah Institute of Australia (SIA) is a not-for-profit,
+              ACNC-registered charity organisation based in New South Wales.
+              Founded with a deep commitment to compassion and service, SIA is
+              dedicated to improving the lives of vulnerable individuals through
+              education, healthcare, and community support—both in Australia and
+              overseas. In Australia, we focus on assisting individuals facing
+              difficult circumstances, such as those at risk of homelessness, the
+              unemployed, and victims of natural disasters or personal hardship.
+              We also actively engage with culturally and linguistically diverse
+              (CALD) communities, promoting inclusivity, mutual understanding, and
+              social cohesion through various outreach and support programs.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Globally, our mission extends to helping disadvantaged populations
+              in underserved regions. We offer scholarships to students who cannot
+              afford an education and fund medical aid—including life-changing eye
+              treatments—for those who lack access to basic healthcare.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              At SIA, we believe that every individual deserves the opportunity to
+              live with dignity, hope, and purpose. Our programs are
+              community-driven, sustainable, and focused on long-term impact. With
+              your support, we continue to build pathways that uplift lives,
+              foster resilience, and empower communities across borders.
+            </p>
+          </div>
         </div>
       </section>
 
