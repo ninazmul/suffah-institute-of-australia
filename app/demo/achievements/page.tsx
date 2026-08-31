@@ -62,40 +62,38 @@ const Page = () => {
 
           {/* Tab Content */}
           <div className="achievements-content flex-1">
-            <div className="grid grid-cols-1 gap-4 mt-2">
-              {achievements
-                .filter((a) =>
-                  activeTab === "All" ? true : a.category === activeTab
-                )
-                .map((a, idx) => (
-                  <div
-                    key={idx}
-                    className="achievements-card rounded-2xl shadow-md"
-                  >
-                    {a.image && (
-                      <div className="card-image">
-                        <Image
-                          src={a.image}
-                          alt={a.title}
-                          fill
-                          className="object-contain bg-gray-100 w-full border rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl"
-                        />
-                      </div>
-                    )}
-                    <div className="card-details">
-                      <div className="mb-2">
-                        <h3 className="text-lg font-bold">{a.title}</h3>
-                        <p className="text-sm text-muted-foreground font-semibold">
-                          {a.category}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-sm">{a.description}</p>
-                      </div>
+            {achievements
+              .filter((a) =>
+                activeTab === "All" ? true : a.category === activeTab
+              )
+              .map((a, idx) => (
+                <div
+                  key={idx}
+                  className="achievements-card rounded-2xl shadow-md"
+                >
+                  {a.image && (
+                    <div className="card-image">
+                      <Image
+                        src={a.image}
+                        alt={a.title}
+                        fill
+                        className="object-contain bg-gray-100 w-full border rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl"
+                      />
+                    </div>
+                  )}
+                  <div className="card-details">
+                    <div className="mb-2">
+                      <h3 className="text-lg font-bold">{a.title}</h3>
+                      <p className="text-sm text-muted-foreground font-semibold">
+                        {a.category}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm">{a.description}</p>
                     </div>
                   </div>
-                ))}
-            </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>
