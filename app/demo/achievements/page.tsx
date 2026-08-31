@@ -44,7 +44,7 @@ const Page = () => {
 
         <div className="achievements-content flex flex-col">
           {/* Custom Vertical Tabs */}
-          <div className="achievements-tabs flex flex-col md:flex-row lg:flex-col gap-2">
+          <div className="achievements-tabs">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -70,10 +70,10 @@ const Page = () => {
                 .map((a, idx) => (
                   <div
                     key={idx}
-                    className="achievements-card rounded-2xl shadow-md hover:shadow-lg transition flex flex-col md:flex-row bg-white"
+                    className="achievements-card rounded-2xl shadow-md"
                   >
                     {a.image && (
-                      <div className="card-image relative md:w-1/3 lg:w-1/4 min-h-72 md:min-h-[200px] lg:min-h-[250px]">
+                      <div className="card-image">
                         <Image
                           src={a.image}
                           alt={a.title}
@@ -82,7 +82,7 @@ const Page = () => {
                         />
                       </div>
                     )}
-                    <div className="card-details p-4 flex flex-col flex-1">
+                    <div className="card-details">
                       <div className="mb-2">
                         <h3 className="text-lg font-bold">{a.title}</h3>
                         <p className="text-sm text-muted-foreground font-semibold">

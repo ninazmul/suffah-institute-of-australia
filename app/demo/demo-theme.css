@@ -694,3 +694,49 @@ section.banner-container h2 {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+
+/* ACHIEVEMENTS */
+.achievements-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievements-tabs button {
+    width: fit-content;
+}
+
+.achievements-tabs button:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.achievements-card {
+    background: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.card-image {
+    background: aqua;
+    max-width: 30%;
+}
+
+.card-image img {
+    background: green;
+    /* width: 30%; */
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.card-details {
+    background: yellow;
+    width: calc(100% - 350px);
+}
