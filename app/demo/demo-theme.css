@@ -723,14 +723,15 @@ section.banner-container h2 {
 .card-image {
     background: aqua;
     max-width: 30%;
+    position: relative;
 }
 
 .card-image img {
     background: green;
     /* width: 30%; */
-    position: relative;
-    width: 300px;
-    height: 300px;
+    position: relative !important;
+    width: 300px !important;
+    height: 300px !important;
     border-radius: 100%;
     object-fit: cover;
     object-position: top;
