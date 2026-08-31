@@ -718,7 +718,6 @@ section.banner-container h2 {
 }
 
 .achievements-card {
-  background: aqua;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -726,30 +725,29 @@ section.banner-container h2 {
   border-radius: 2rem;
   width: calc(50% - 2rem);
   margin: 1rem;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 .card-image {
-  background: aqua;
   width: 100%;
-  /* position: relative; */
   display: flex;
   justify-content: center;
 }
 
 .card-image img {
-  background: green;
   position: relative !important;
   width: 150px !important;
   height: 150px !important;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 100%;
   object-fit: cover;
   object-position: top;
 }
 
 .card-details {
-  background: yellow;
 }
 
 .card-header {
   text-align: center;
+  margin-bottom: 1rem;
 }
