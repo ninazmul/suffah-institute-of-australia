@@ -128,7 +128,7 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Our Team
           </h1>
-          <div className="grid gap-8 grid-cols-1">
+          <div className="team-members-container">
             {teamMembers.map((member, idx) => (
               <div
                 key={idx}
