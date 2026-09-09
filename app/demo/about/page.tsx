@@ -1,5 +1,4 @@
 import BannerSecondary from "@/components/sharedNew/BannerSecondary";
-import Image from "next/image";
 
 const teamMembers = [
   {
