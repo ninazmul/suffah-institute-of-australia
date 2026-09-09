@@ -123,7 +123,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-10 md:py-16">
+      <section className="section-team py-10 md:py-16">
         <div className="wrapper max-w-6xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Our Team
@@ -132,16 +132,16 @@ export default function AboutPage() {
             {teamMembers.map((member, idx) => (
               <div
                 key={idx}
-                className="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+                className="card-team-member flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
               >
                 <div className="space-y-2 text-center md:text-left">
-                  <h2 className="text-xl font-semibold text-gray-800">
+                  <h2 className="team-member-name text-xl font-semibold text-gray-800">
                     {member.name}
                   </h2>
-                  <p className="text-sm text-indigo-600 font-medium">
+                  <p className="team-member-role text-sm text-indigo-600 font-medium">
                     {member.role}
                   </p>
-                  <p className="text-gray-600 leading-relaxed text-sm">
+                  <p className="team-member-description text-gray-600 leading-relaxed text-sm">
                     {member.description}
                   </p>
                 </div>
