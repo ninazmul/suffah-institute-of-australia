@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ImFacebook, ImLinkedin2 } from "react-icons/im";
-import BannerSecondary from "./BannerSecondary";
 
 const Footer = () => {
   return (
     <footer className="footer footer-bg text-white dark:text-green-200 py-8">
-      <BannerSecondary title="Our Services" img="/assets/images/banner-3.jpg" />
+      <Image src="/assets/images/banner-3.jpg" alt="Secondary Background" className="w-full h-auto" />
       <div className="container mx-auto px-4">
         <div className="footer-wrapper">
           <div className="footer-logo">
